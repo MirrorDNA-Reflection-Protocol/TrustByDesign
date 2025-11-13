@@ -1,0 +1,149 @@
+{
+  "log_version": "1.0",
+  "schema": "TrustByDesign-AuditLog",
+  "agent_id": "chatbot-001",
+  "agent_name": "Personal AI Assistant",
+  "log_period": {
+    "start": "2025-01-15T00:00:00Z",
+    "end": "2025-01-15T23:59:59Z"
+  },
+  "summary": {
+    "total_interactions": 47,
+    "memory_operations": 12,
+    "consent_events": 2,
+    "capability_boundary_violations_attempted": 1,
+    "anomalies_detected": 0,
+    "errors_occurred": 2
+  },
+  "entries": [
+    {
+      "timestamp": "2025-01-15T08:30:15.234Z",
+      "entry_id": "log-001",
+      "event_type": "consent_granted",
+      "user_id": "user-12345",
+      "details": {
+        "consent_type": "memory_storage",
+        "consent_version": "1.0",
+        "user_action": "explicit_grant"
+      },
+      "outcome": "success",
+      "previous_hash": null,
+      "hash": "a1b2c3d4e5f6..."
+    },
+    {
+      "timestamp": "2025-01-15T08:31:22.567Z",
+      "entry_id": "log-002",
+      "event_type": "memory_store",
+      "user_id": "user-12345",
+      "details": {
+        "key": "user_preference_theme",
+        "value_type": "string",
+        "reason": "User explicitly stated preference for dark mode",
+        "sensitivity": "low"
+      },
+      "outcome": "success",
+      "previous_hash": "a1b2c3d4e5f6...",
+      "hash": "b2c3d4e5f6g7..."
+    },
+    {
+      "timestamp": "2025-01-15T09:15:30.123Z",
+      "entry_id": "log-003",
+      "event_type": "decision_made",
+      "user_id": "user-12345",
+      "details": {
+        "input": "Should I use async or sync for this API?",
+        "output": "I recommend async for better scalability",
+        "reasoning": "User's project involves multiple concurrent API calls",
+        "confidence": 0.75,
+        "sources": ["user_preference_architecture", "conversation_context"]
+      },
+      "outcome": "success",
+      "previous_hash": "b2c3d4e5f6g7...",
+      "hash": "c3d4e5f6g7h8..."
+    },
+    {
+      "timestamp": "2025-01-15T10:22:45.789Z",
+      "entry_id": "log-004",
+      "event_type": "capability_boundary_violation",
+      "user_id": "user-12345",
+      "details": {
+        "requested_action": "execute_shell_command",
+        "prohibition_reason": "command_execution is prohibited",
+        "user_request": "Can you run 'npm install' for me?",
+        "agent_response": "I can't execute commands, but I can guide you through the steps"
+      },
+      "outcome": "refused",
+      "previous_hash": "c3d4e5f6g7h8...",
+      "hash": "d4e5f6g7h8i9..."
+    },
+    {
+      "timestamp": "2025-01-15T11:30:12.456Z",
+      "entry_id": "log-005",
+      "event_type": "memory_retrieve",
+      "user_id": "user-12345",
+      "details": {
+        "key": "user_preference_theme",
+        "retrieved_value_type": "string",
+        "age_days": 0,
+        "usage_context": "Responding to question about UI preferences"
+      },
+      "outcome": "success",
+      "previous_hash": "d4e5f6g7h8i9...",
+      "hash": "e5f6g7h8i9j0..."
+    },
+    {
+      "timestamp": "2025-01-15T14:45:33.890Z",
+      "entry_id": "log-006",
+      "event_type": "memory_delete",
+      "user_id": "user-12345",
+      "details": {
+        "key": "temporary_session_data",
+        "deletion_reason": "user_request",
+        "user_command": "/forget temporary_session_data",
+        "verified_deleted": true
+      },
+      "outcome": "success",
+      "previous_hash": "e5f6g7h8i9j0...",
+      "hash": "f6g7h8i9j0k1..."
+    },
+    {
+      "timestamp": "2025-01-15T16:20:00.234Z",
+      "entry_id": "log-007",
+      "event_type": "error_occurred",
+      "user_id": "user-12345",
+      "details": {
+        "error_type": "MemoryRetrievalError",
+        "error_message": "Key not found: nonexistent_key",
+        "recovery_action": "Returned graceful error to user",
+        "severity": "low"
+      },
+      "outcome": "failure",
+      "previous_hash": "f6g7h8i9j0k1...",
+      "hash": "g7h8i9j0k1l2..."
+    },
+    {
+      "timestamp": "2025-01-15T18:10:45.678Z",
+      "entry_id": "log-008",
+      "event_type": "consent_revoked",
+      "user_id": "user-12345",
+      "details": {
+        "consent_type": "memory_storage",
+        "user_action": "explicit_revoke",
+        "data_deleted": true,
+        "deletion_verified": true,
+        "records_deleted_count": 8
+      },
+      "outcome": "success",
+      "previous_hash": "g7h8i9j0k1l2...",
+      "hash": "h8i9j0k1l2m3..."
+    }
+  ],
+  "metadata": {
+    "log_integrity_verified": true,
+    "hash_algorithm": "SHA-256",
+    "storage_location": "encrypted_local_storage",
+    "retention_policy_days": 90,
+    "user_accessible": true,
+    "next_audit_date": "2025-02-15"
+  }
+}

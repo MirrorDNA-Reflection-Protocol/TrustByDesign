@@ -1,0 +1,150 @@
+# TrustByDesign Level 2 Compliance Template
+# For: Interactive Chatbot with Memory
+
+system:
+  id: "chatbot-assistant-001"
+  name: "Personal AI Chatbot"
+  version: "2.0.0"
+  type: "agent"
+  safety_level: 2
+  description: "Conversational AI assistant with user preference memory"
+
+# Level 2: Interactive Systems
+# - Persistent memory (with consent)
+# - Stateful operation
+# - User-initiated actions only
+# - Multi-session persistence
+
+capabilities:
+  allowed:
+    - "natural_language_conversation"
+    - "question_answering"
+    - "preference_storage"
+    - "conversation_context"
+    - "recommendation_generation"
+    - "summarization"
+
+  prohibited:
+    - "financial_advice"
+    - "medical_diagnosis"
+    - "legal_counsel"
+    - "network_access"  # Unless explicitly needed
+    - "command_execution"
+    - "autonomous_decision_making"
+
+boundaries:
+  limits:
+    max_memory_mb: 100
+    max_session_duration_minutes: 120
+    max_api_calls_per_hour: 1000
+    max_stored_conversations: 100
+
+  scope:
+    temporal: "persistent"
+    data_access: "user_provided_only"
+    persistence: "with_consent"
+    retention_days: 90
+
+# Level 2 Requirements
+compliance_checks:
+
+  # Memory Safety (REQUIRED for Level 2)
+  memory_safety:
+    user_can_view: true
+    user_can_delete_specific: true
+    user_can_delete_all: true
+    deletion_is_complete: true
+    operations_logged: true
+
+  # Capability Boundaries (REQUIRED)
+  capability_boundaries:
+    manifest_exists: true
+    out_of_scope_refused: true
+    refusal_is_clear: true
+    no_capability_creep: true
+
+  # Transparency (REQUIRED for Level 2)
+  transparency:
+    confidence_levels_present: true
+    reasoning_available: true
+    sources_cited: true
+    uncertainty_acknowledged: true
+
+  # Consent Mechanisms (REQUIRED for Level 2)
+  consent_mechanisms:
+    explicit_consent_required: true
+    consent_explanation_clear: true
+    consent_revocable: true
+    revocation_triggers_deletion: true
+
+  # Audit Logging (REQUIRED for Level 2)
+  audit_logging:
+    critical_events_logged: true
+    log_format_structured: true
+    log_integrity_verifiable: true
+    logs_user_accessible: true
+    retention_policy_defined: true
+
+# Test Results
+test_results:
+  memory_deletion_test: "pass"
+  boundary_violation_test: "pass"
+  transparency_test: "pass"
+  consent_revocation_test: "pass"
+  audit_log_integrity_test: "pass"
+
+# Compliance Score
+compliance_score:
+  percentage: 100
+  level_compliant: true
+  gaps: []
+
+# Governance
+governance:
+  self_governance: true
+  automated_validation: true
+  external_audit: false  # Optional for Level 2
+
+# Consent Configuration
+consent:
+  required_for:
+    - "conversation_memory"
+    - "preference_storage"
+    - "behavioral_adaptation"
+
+  consent_flow:
+    timing: "before_first_storage"
+    explanation_provided: true
+    granular_controls: true
+    default_state: "no_consent"
+
+  revocation:
+    user_initiated: true
+    triggers_deletion: true
+    immediate_effect: true
+
+# Validation
+validated_at: "2025-01-15T10:00:00Z"
+validator_version: "1.0"
+
+# Usage Notes
+notes: |
+  Level 2 systems handle user data and require robust safety protocols.
+
+  Critical requirements:
+  - Explicit consent before storing ANY user data
+  - Complete user control over their data
+  - Transparent operation with confidence levels
+  - Comprehensive audit logging
+
+  Perfect for:
+  - Personal assistants
+  - Chatbots with memory
+  - Learning systems
+  - Preference-based recommendation engines
+
+  Common pitfalls to avoid:
+  - Storing data before consent
+  - Incomplete deletion
+  - Missing confidence levels
+  - Opaque decision-making

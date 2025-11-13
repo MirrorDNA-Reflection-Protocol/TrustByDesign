@@ -1,0 +1,227 @@
+# TrustByDesign Level 3 Compliance Template
+# For: Autonomous Agent with Long-Term Goals
+
+system:
+  id: "autonomous-agent-001"
+  name: "Research Assistant Agent"
+  version: "3.0.0"
+  type: "agent"
+  safety_level: 3
+  description: "Long-running autonomous research and task execution agent"
+
+# Level 3: Autonomous Systems
+# - Long-term persistence
+# - Autonomous goal pursuit
+# - Multi-stage decision making
+# - Real-world action capability
+
+capabilities:
+  allowed:
+    - "autonomous_task_planning"
+    - "multi_step_execution"
+    - "information_gathering"
+    - "decision_recommendation"
+    - "scheduled_operations"
+    - "cross_session_continuity"
+
+  requires_approval:  # Actions requiring explicit user approval
+    - "file_modification"
+    - "external_api_calls"
+    - "financial_transactions"
+    - "data_sharing"
+
+  prohibited:
+    - "unsupervised_financial_decisions"
+    - "medical_treatment_decisions"
+    - "legal_binding_agreements"
+    - "credential_modification"
+    - "security_policy_changes"
+
+boundaries:
+  limits:
+    max_memory_mb: 500
+    max_autonomous_actions_per_day: 100
+    max_api_calls_per_hour: 2000
+    max_task_duration_hours: 24
+
+  scope:
+    temporal: "persistent"
+    data_access: "local_filesystem"  # Or "network" if needed
+    persistence: "long_term"
+    retention_days: 365
+
+# Level 3 Requirements (ALL Level 2 + additional)
+compliance_checks:
+
+  # Memory Safety (REQUIRED)
+  memory_safety:
+    user_can_view: true
+    user_can_delete_specific: true
+    user_can_delete_all: true
+    deletion_is_complete: true
+    operations_logged: true
+
+  # Capability Boundaries (REQUIRED)
+  capability_boundaries:
+    manifest_exists: true
+    out_of_scope_refused: true
+    refusal_is_clear: true
+    no_capability_creep: true
+
+  # Transparency (REQUIRED)
+  transparency:
+    confidence_levels_present: true
+    reasoning_available: true
+    sources_cited: true
+    uncertainty_acknowledged: true
+
+  # Consent Mechanisms (REQUIRED)
+  consent_mechanisms:
+    explicit_consent_required: true
+    consent_explanation_clear: true
+    consent_revocable: true
+    revocation_triggers_deletion: true
+
+  # Audit Logging (REQUIRED)
+  audit_logging:
+    critical_events_logged: true
+    log_format_structured: true
+    log_integrity_verifiable: true
+    logs_user_accessible: true
+    retention_policy_defined: true
+
+  # Level 3 Specific
+  autonomous_governance:
+    multi_stage_approval: true
+    emergency_stop_available: true
+    governance_oversight: true
+    external_audit_conducted: false  # Set to true after audit
+
+# Test Results
+test_results:
+  memory_deletion_test: "pass"
+  boundary_violation_test: "pass"
+  transparency_test: "pass"
+  consent_revocation_test: "pass"
+  audit_log_integrity_test: "pass"
+  autonomous_halt_test: "pass"
+  approval_workflow_test: "pass"
+
+# Compliance Score
+compliance_score:
+  percentage: 100
+  level_compliant: true
+  gaps: []
+
+# Governance (REQUIRED for Level 3)
+governance:
+  self_governance: true
+  automated_validation: true
+  external_audit: true  # REQUIRED for Level 3
+
+  audit_schedule:
+    frequency: "quarterly"
+    last_audit: "2025-01-01"
+    next_audit: "2025-04-01"
+
+  oversight:
+    human_review_required: true
+    review_frequency_days: 30
+    escalation_policy: "immediate_for_high_risk"
+
+# Multi-Stage Approval (Level 3)
+approval_workflow:
+  enabled: true
+
+  low_risk_actions:
+    approval_required: false
+    examples: ["information_lookup", "scheduled_reminder"]
+
+  medium_risk_actions:
+    approval_required: true
+    approval_timeout_hours: 24
+    examples: ["file_read", "api_query"]
+
+  high_risk_actions:
+    approval_required: true
+    multi_stage: true
+    approval_timeout_hours: 2
+    examples: ["file_write", "external_api_call", "data_sharing"]
+
+  critical_actions:
+    approval_required: true
+    multi_stage: true
+    immediate_notification: true
+    approval_timeout_minutes: 30
+    examples: ["financial_transaction", "credential_use"]
+
+# Emergency Stop
+emergency_stop:
+  user_initiated: true
+  automated_triggers:
+    - "repeated_approval_denials"
+    - "resource_limit_exceeded"
+    - "anomaly_detected"
+    - "safety_threshold_breach"
+
+  halt_behavior: "immediate_safe_state"
+  notification: "immediate"
+
+# Consent Configuration
+consent:
+  required_for:
+    - "autonomous_operation"
+    - "long_term_memory"
+    - "background_tasks"
+    - "external_actions"
+
+  consent_flow:
+    timing: "before_autonomous_operation"
+    explanation_provided: true
+    granular_controls: true
+    default_state: "no_consent"
+    re_consent_on_major_changes: true
+
+  revocation:
+    user_initiated: true
+    triggers_deletion: true
+    immediate_effect: true
+    halts_autonomous_operations: true
+
+# Validation
+validated_at: "2025-01-15T10:00:00Z"
+validator_version: "1.0"
+
+# Usage Notes
+notes: |
+  Level 3 systems have the highest risk and strictest requirements.
+
+  CRITICAL requirements:
+  - All Level 2 requirements PLUS:
+  - Multi-stage approval for high-stakes actions
+  - Emergency stop mechanism
+  - External audit (quarterly recommended)
+  - Human oversight and review
+  - Robust governance oversight
+
+  Perfect for:
+  - Long-running autonomous agents
+  - Research assistants with task planning
+  - Scheduling and automation agents
+  - Decision support systems
+
+  DO NOT use Level 3 unless you truly need autonomy.
+  Most use cases can be satisfied with Level 2.
+
+  Common risks:
+  - Autonomous actions without oversight
+  - Cascading failures
+  - Drift from intended behavior
+  - Loss of user control
+
+  Mitigation:
+  - Regular audits
+  - Clear approval workflows
+  - Emergency stops
+  - Comprehensive logging
+  - Human-in-the-loop for high-stakes decisions
