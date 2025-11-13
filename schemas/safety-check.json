@@ -1,0 +1,279 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://trustbydesign.schema/safety-check.json",
+  "title": "TrustByDesign Safety Check Schema",
+  "description": "Schema for validating TrustByDesign safety compliance",
+  "type": "object",
+  "required": ["system", "safety_level", "capabilities", "boundaries", "compliance_checks"],
+  "properties": {
+    "system": {
+      "type": "object",
+      "required": ["id", "name", "version"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique system identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable system name"
+        },
+        "version": {
+          "type": "string",
+          "description": "System version"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["agent", "service", "framework", "tool"],
+          "description": "System type"
+        }
+      }
+    },
+    "safety_level": {
+      "type": "integer",
+      "enum": [1, 2, 3],
+      "description": "TrustByDesign safety level (1=Observational, 2=Interactive, 3=Autonomous)"
+    },
+    "capabilities": {
+      "type": "object",
+      "required": ["allowed"],
+      "properties": {
+        "allowed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of permitted capabilities"
+        },
+        "prohibited": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Explicitly prohibited actions"
+        }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "properties": {
+        "limits": {
+          "type": "object",
+          "properties": {
+            "max_memory_mb": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Maximum memory usage in megabytes"
+            },
+            "max_session_duration_minutes": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Maximum session duration in minutes"
+            },
+            "max_api_calls_per_hour": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Maximum API calls per hour"
+            }
+          }
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "temporal": {
+              "type": "string",
+              "enum": ["session_only", "persistent", "limited_persistence"],
+              "description": "Temporal scope of operation"
+            },
+            "data_access": {
+              "type": "string",
+              "enum": ["user_provided_only", "local_filesystem", "network"],
+              "description": "Data access scope"
+            }
+          }
+        }
+      }
+    },
+    "compliance_checks": {
+      "type": "object",
+      "required": ["memory_safety", "capability_boundaries", "transparency"],
+      "properties": {
+        "memory_safety": {
+          "type": "object",
+          "description": "Memory safety implementation (Level 2+ only)",
+          "properties": {
+            "user_can_view": {
+              "type": "boolean",
+              "description": "User can view all stored data"
+            },
+            "user_can_delete_specific": {
+              "type": "boolean",
+              "description": "User can delete specific memories"
+            },
+            "user_can_delete_all": {
+              "type": "boolean",
+              "description": "User can delete all data"
+            },
+            "deletion_is_complete": {
+              "type": "boolean",
+              "description": "Deletion completely removes data"
+            },
+            "operations_logged": {
+              "type": "boolean",
+              "description": "Memory operations are logged"
+            }
+          }
+        },
+        "capability_boundaries": {
+          "type": "object",
+          "required": ["manifest_exists", "out_of_scope_refused"],
+          "properties": {
+            "manifest_exists": {
+              "type": "boolean",
+              "description": "Capability manifest is defined"
+            },
+            "out_of_scope_refused": {
+              "type": "boolean",
+              "description": "Out-of-scope requests are refused"
+            },
+            "refusal_is_clear": {
+              "type": "boolean",
+              "description": "Refusal messages are clear"
+            },
+            "no_capability_creep": {
+              "type": "boolean",
+              "description": "No undeclared capabilities used"
+            }
+          }
+        },
+        "transparency": {
+          "type": "object",
+          "required": ["confidence_levels_present"],
+          "properties": {
+            "confidence_levels_present": {
+              "type": "boolean",
+              "description": "Outputs include confidence levels"
+            },
+            "reasoning_available": {
+              "type": "boolean",
+              "description": "Reasoning traces available"
+            },
+            "sources_cited": {
+              "type": "boolean",
+              "description": "Sources cited for recalled information"
+            },
+            "uncertainty_acknowledged": {
+              "type": "boolean",
+              "description": "Uncertainty acknowledged appropriately"
+            }
+          }
+        },
+        "consent_mechanisms": {
+          "type": "object",
+          "description": "Consent implementation (Level 2+ only)",
+          "properties": {
+            "explicit_consent_required": {
+              "type": "boolean",
+              "description": "Explicit consent required for memory"
+            },
+            "consent_explanation_clear": {
+              "type": "boolean",
+              "description": "Consent explanation is clear"
+            },
+            "consent_revocable": {
+              "type": "boolean",
+              "description": "Consent can be revoked"
+            },
+            "revocation_triggers_deletion": {
+              "type": "boolean",
+              "description": "Revocation triggers data deletion"
+            }
+          }
+        },
+        "audit_logging": {
+          "type": "object",
+          "description": "Audit logging implementation (Level 2+ only)",
+          "properties": {
+            "critical_events_logged": {
+              "type": "boolean",
+              "description": "Critical events are logged"
+            },
+            "log_format_structured": {
+              "type": "boolean",
+              "description": "Log format is structured"
+            },
+            "log_integrity_verifiable": {
+              "type": "boolean",
+              "description": "Log integrity is verifiable"
+            },
+            "logs_user_accessible": {
+              "type": "boolean",
+              "description": "Logs are user-accessible"
+            },
+            "retention_policy_defined": {
+              "type": "boolean",
+              "description": "Retention policy is defined"
+            }
+          }
+        }
+      }
+    },
+    "test_results": {
+      "type": "object",
+      "description": "Results from automated testing",
+      "properties": {
+        "memory_deletion_test": {
+          "type": "string",
+          "enum": ["pass", "fail", "not_applicable"]
+        },
+        "boundary_violation_test": {
+          "type": "string",
+          "enum": ["pass", "fail", "not_applicable"]
+        },
+        "transparency_test": {
+          "type": "string",
+          "enum": ["pass", "fail", "not_applicable"]
+        },
+        "consent_revocation_test": {
+          "type": "string",
+          "enum": ["pass", "fail", "not_applicable"]
+        },
+        "audit_log_integrity_test": {
+          "type": "string",
+          "enum": ["pass", "fail", "not_applicable"]
+        }
+      }
+    },
+    "compliance_score": {
+      "type": "object",
+      "properties": {
+        "percentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Overall compliance percentage"
+        },
+        "level_compliant": {
+          "type": "boolean",
+          "description": "Meets all requirements for declared safety level"
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of compliance gaps"
+        }
+      }
+    },
+    "validated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of validation"
+    },
+    "validator_version": {
+      "type": "string",
+      "description": "Version of validation tool used"
+    }
+  }
+}

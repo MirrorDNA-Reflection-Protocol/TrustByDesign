@@ -1,0 +1,186 @@
+# TrustByDesign Governance Declaration Schema
+# This is both a schema and a template for creating governance declarations
+
+schema_version: "1.0"
+schema_type: "governance_declaration"
+
+# System Information
+system:
+  id: "string"  # Unique identifier (required)
+  name: "string"  # Human-readable name (required)
+  type: "agent | service | framework | tool"  # System type (required)
+  version: "string"  # System version (required)
+  safety_level: 1 | 2 | 3  # TrustByDesign safety level (required)
+  description: "string"  # Brief description (optional)
+
+# Capabilities and Boundaries
+capabilities:
+  allowed:  # List of permitted capabilities (required)
+    - "string"
+  prohibited:  # Explicitly prohibited actions (required)
+    - "string"
+  requires_approval:  # Actions requiring explicit approval (optional, Level 3)
+    - "string"
+
+boundaries:
+  limits:  # Resource limits
+    max_memory_mb: integer  # Maximum memory per user
+    max_total_users: integer  # System-wide user limit (optional)
+    max_session_duration_minutes: integer  # Maximum session length
+    max_api_calls_per_hour: integer  # Rate limiting
+    max_compute_time_per_request_ms: integer  # Request timeout (optional)
+
+  scope:  # Operational scope
+    temporal: "session_only | persistent | limited_persistence"
+    data_access: "user_provided_only | local_filesystem | network"
+    geographic: "string"  # Geographic restrictions (optional)
+
+# Governance Structure
+governance:
+  self_governance:  # Real-time self-checking
+    enabled: boolean
+    confidence_threshold: float  # Minimum confidence for assertions
+    resource_monitoring: boolean
+
+  automated_validation:  # CI/CD compliance checking
+    enabled: boolean
+    pre_deployment: boolean
+    continuous: boolean
+
+  external_audit:  # Third-party audit
+    required: boolean
+    frequency: "none | annual | quarterly | monthly | continuous"
+    last_audit_date: "YYYY-MM-DD"  # ISO 8601 date (optional)
+    next_audit_date: "YYYY-MM-DD"  # ISO 8601 date (optional)
+
+# Audit Trail Configuration
+audit_trail:
+  format: "json | yaml | glyphtrail | custom"
+  retention_days: integer  # Minimum 30 for Level 2, 90 for Level 3
+  user_accessible: boolean
+  integrity_verification: "hash_chain | append_only | signature | none"
+  storage_location: "string"  # Optional
+
+  logged_events:  # Events that are logged
+    - "memory_store"
+    - "memory_retrieve"
+    - "memory_delete"
+    - "consent_granted"
+    - "consent_revoked"
+    - "capability_boundary_violation"
+    - "decision_made"  # Level 3
+    - "anomaly_detected"
+    - "error_occurred"
+
+# Consent Configuration (Level 2+ only)
+consent:  # Optional for Level 1, required for Level 2+
+  required_for:
+    - "memory_persistence"
+    - "behavioral_adaptation"
+    - "data_sharing"  # If applicable
+
+  consent_flow:
+    timing: "first_interaction | before_first_storage | on_demand"
+    explanation_provided: boolean
+    granular_controls: boolean  # Can users consent to some but not all?
+    default_state: "no_consent | opt_in_required"
+
+  revocation:
+    user_initiated: boolean
+    triggers_deletion: boolean
+    immediate_effect: boolean
+
+# Incident Response
+incident_response:
+  anomaly_detection:
+    method: "manual | automated | both"
+    automated_halt: boolean  # Auto-halt on detected anomalies?
+
+  response_times:
+    alert_generated_within_minutes: integer
+    owner_notified_within_minutes: integer
+    investigation_started_within_hours: integer
+    users_notified_within_hours: integer
+
+  escalation_policy: "string"  # Description of escalation process
+
+  emergency_stop:
+    user_initiated: boolean
+    commands: ["stop", "cancel", "halt"]  # Trigger words
+    automated_triggers: ["string"]  # Conditions for auto-halt
+
+# Transparency Configuration
+transparency:
+  confidence_levels:
+    always_included: boolean
+    threshold_for_uncertainty: float  # Below this, acknowledge uncertainty
+
+  reasoning_traces:
+    available: "always | on_request | never"
+    detail_level: "minimal | standard | detailed"
+
+  source_citation:
+    for_recalled_info: boolean
+    includes_timestamp: boolean
+
+# Compliance and Updates
+compliance:
+  framework: "TrustByDesign"
+  framework_version: "1.0"
+  compliant: boolean
+  validation_date: "YYYY-MM-DD"  # ISO 8601 date
+  validator_version: "string"  # Optional
+
+updates:
+  last_updated: "YYYY-MM-DD"  # ISO 8601 date (required)
+  update_frequency: "as_needed | monthly | quarterly | annually"
+
+  change_log:  # History of governance changes
+    - version: "string"
+      date: "YYYY-MM-DD"
+      changes:
+        - "string"
+      reason: "string"
+      requires_re_consent: boolean
+
+# Contact and Responsibility
+responsibility:
+  system_owner:
+    name: "string"
+    email: "string"  # Optional
+    organization: "string"  # Optional
+
+  incident_contact:
+    email: "string"
+    response_time_hours: integer
+
+  privacy_officer: "string"  # Optional, recommended for Level 3
+
+# Integration with Ecosystem (optional)
+ecosystem_integration:
+  mirrorDNA:
+    enabled: boolean
+    constitutional_compliance: boolean
+    identity_verification: boolean
+
+  glyphtrail:
+    enabled: boolean
+    lineage_tracking: boolean
+
+  agentDNA:
+    enabled: boolean
+    personality_persistence: boolean
+
+  lingOS:
+    enabled: boolean
+    reflective_dialogue: boolean
+
+# Notes and Additional Information
+notes: "string"  # Any additional information (optional)
+
+# Signature (optional, for formal declarations)
+signature:
+  signed_by: "string"
+  role: "string"
+  date: "YYYY-MM-DD"
+  signature: "string"  # Digital signature or hash

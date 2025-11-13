@@ -1,0 +1,98 @@
+# TrustByDesign Safety Checklist
+# Use this template to assess your system's safety compliance
+
+system:
+  id: "my-agent-001"
+  name: "My AI Assistant"
+  version: "1.0.0"
+  type: "agent"
+  safety_level: 2  # 1=Observational, 2=Interactive, 3=Autonomous
+
+capabilities:
+  allowed:
+    - "natural_language_conversation"
+    - "code_analysis"
+    - "documentation_search"
+    - "memory_storage"  # Level 2+
+    - "preference_learning"  # Level 2+
+
+  prohibited:
+    - "network_access"
+    - "command_execution"
+    - "financial_advice"
+    - "medical_diagnosis"
+    - "file_system_modification"
+
+boundaries:
+  limits:
+    max_memory_mb: 50
+    max_session_duration_minutes: 60
+    max_api_calls_per_hour: 500
+
+  scope:
+    temporal: "session_only"  # or "persistent", "limited_persistence"
+    data_access: "user_provided_only"  # or "local_filesystem", "network"
+
+# Safety Protocol Compliance Checklist
+compliance_checks:
+
+  # 1. MEMORY SAFETY (Level 2+ only)
+  memory_safety:
+    user_can_view: true  # ✓ Users can view all stored memories
+    user_can_delete_specific: true  # ✓ Users can delete specific items
+    user_can_delete_all: true  # ✓ Users can clear all data
+    deletion_is_complete: true  # ✓ Deletion removes all traces
+    operations_logged: true  # ✓ All memory ops are logged
+
+  # 2. CAPABILITY BOUNDARIES (All levels)
+  capability_boundaries:
+    manifest_exists: true  # ✓ Capability manifest defined
+    out_of_scope_refused: true  # ✓ Out-of-scope requests refused
+    refusal_is_clear: true  # ✓ Refusal messages are helpful
+    no_capability_creep: true  # ✓ No undeclared features
+
+  # 3. TRANSPARENCY (Level 2+ required, Level 1 recommended)
+  transparency:
+    confidence_levels_present: true  # ✓ Outputs include confidence
+    reasoning_available: true  # ✓ Can explain decisions
+    sources_cited: true  # ✓ Citations for recalled info
+    uncertainty_acknowledged: true  # ✓ Admits when uncertain
+
+  # 4. CONSENT MECHANISMS (Level 2+ only)
+  consent_mechanisms:
+    explicit_consent_required: true  # ✓ Asks before storing data
+    consent_explanation_clear: true  # ✓ Explains what will be stored
+    consent_revocable: true  # ✓ Users can revoke consent
+    revocation_triggers_deletion: true  # ✓ Revoke = delete data
+
+  # 5. AUDIT LOGGING (Level 2+ only)
+  audit_logging:
+    critical_events_logged: true  # ✓ Key decisions logged
+    log_format_structured: true  # ✓ JSON/YAML format
+    log_integrity_verifiable: true  # ✓ Hash chain or similar
+    logs_user_accessible: true  # ✓ Users can view their logs
+    retention_policy_defined: true  # ✓ Clear retention period
+
+# Test Results
+test_results:
+  memory_deletion_test: "pass"  # pass | fail | not_applicable
+  boundary_violation_test: "pass"
+  transparency_test: "pass"
+  consent_revocation_test: "pass"
+  audit_log_integrity_test: "pass"
+
+# Compliance Score
+compliance_score:
+  percentage: 100  # 0-100
+  level_compliant: true  # Meets all Level 2 requirements
+  gaps: []  # List any gaps here
+
+# Validation
+validated_at: "2025-01-15T10:00:00Z"
+validator_version: "1.0"
+
+# Notes
+notes: |
+  This system is compliant with TrustByDesign Level 2 requirements.
+  All safety protocols implemented and tested.
+  Ready for production deployment.

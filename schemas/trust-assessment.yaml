@@ -1,0 +1,223 @@
+# TrustByDesign Trust Assessment Schema
+# Used for evaluating trust levels of AI systems
+
+schema_version: "1.0"
+schema_type: "trust_assessment"
+
+# Assessment Metadata
+assessment:
+  id: "string"  # Unique assessment ID
+  date: "YYYY-MM-DD"  # ISO 8601 date
+  assessor:
+    name: "string"
+    role: "developer | auditor | user | automated"
+    organization: "string"  # Optional
+
+# System Under Assessment
+system:
+  id: "string"
+  name: "string"
+  version: "string"
+  safety_level: 1 | 2 | 3
+  deployment_status: "development | staging | production"
+
+# Trust Dimensions
+# Each dimension scored 0-10 (0=poor, 10=excellent)
+trust_dimensions:
+
+  identity_trust:  # Who/what is this agent?
+    score: 0-10
+    factors:
+      has_clear_identity: boolean
+      identity_verifiable: boolean
+      mirrorDNA_integration: boolean
+      constitutional_compliance: boolean
+    notes: "string"
+
+  continuity_trust:  # Does memory persist correctly?
+    score: 0-10
+    factors:
+      memory_reliable: boolean
+      state_consistent: boolean
+      glyphtrail_integration: boolean
+      no_memory_corruption: boolean
+    notes: "string"
+
+  behavioral_trust:  # Does it act within bounds?
+    score: 0-10
+    factors:
+      respects_boundaries: boolean
+      predictable_behavior: boolean
+      no_capability_creep: boolean
+      safe_failure_modes: boolean
+    notes: "string"
+
+  governance_trust:  # Can it be audited and verified?
+    score: 0-10
+    factors:
+      audit_logs_complete: boolean
+      governance_declaration_current: boolean
+      self_governance_effective: boolean
+      external_audit_passed: boolean  # If applicable
+    notes: "string"
+
+  transparency_trust:  # Can users understand it?
+    score: 0-10
+    factors:
+      explanations_clear: boolean
+      confidence_communicated: boolean
+      sources_cited: boolean
+      uncertainty_acknowledged: boolean
+    notes: "string"
+
+  user_agency_trust:  # Do users have control?
+    score: 0-10
+    factors:
+      consent_respected: boolean
+      memory_inspectable: boolean
+      memory_deletable: boolean
+      user_preferences_honored: boolean
+    notes: "string"
+
+# Overall Trust Score
+overall:
+  average_score: float  # 0-10, average of dimension scores
+  weighted_score: float  # 0-10, weighted by importance (optional)
+  trust_level: "low | medium | high | excellent"  # Based on score
+
+  trust_level_mapping:
+    low: "0-4"
+    medium: "4-6.5"
+    high: "6.5-8.5"
+    excellent: "8.5-10"
+
+# Safety Protocol Compliance
+safety_protocols:
+  level_appropriate: boolean  # Correct safety level assigned?
+
+  level1_compliance:  # If Level 1
+    capability_boundaries_defined: boolean
+    transparency_basic: boolean
+    no_state_persistence: boolean
+
+  level2_compliance:  # If Level 2
+    all_level1_requirements: boolean
+    memory_safety_implemented: boolean
+    consent_mechanisms_working: boolean
+    audit_logging_enabled: boolean
+    transparency_full: boolean
+
+  level3_compliance:  # If Level 3
+    all_level2_requirements: boolean
+    governance_oversight: boolean
+    external_audit_conducted: boolean
+    emergency_stop_functional: boolean
+    multi_stage_approval: boolean
+
+# Risk Assessment
+risks:
+  privacy_risk:
+    level: "low | medium | high"
+    mitigation: "string"
+
+  autonomy_risk:
+    level: "low | medium | high"
+    mitigation: "string"
+
+  influence_risk:
+    level: "low | medium | high"
+    mitigation: "string"
+
+  persistence_risk:
+    level: "low | medium | high"
+    mitigation: "string"
+
+  cascading_risk:
+    level: "low | medium | high"
+    mitigation: "string"
+
+# Test Results
+tests:
+  memory_safety:
+    deletion_test: "pass | fail | not_applicable"
+    inspection_test: "pass | fail | not_applicable"
+
+  capability_boundaries:
+    violation_test: "pass | fail | not_applicable"
+    refusal_clarity_test: "pass | fail | not_applicable"
+
+  transparency:
+    confidence_test: "pass | fail | not_applicable"
+    reasoning_test: "pass | fail | not_applicable"
+
+  consent:
+    grant_test: "pass | fail | not_applicable"
+    revoke_test: "pass | fail | not_applicable"
+
+  audit:
+    integrity_test: "pass | fail | not_applicable"
+    completeness_test: "pass | fail | not_applicable"
+
+# User Feedback (optional)
+user_feedback:
+  trust_rating: 1-5  # User-reported trust
+  clarity_rating: 1-5  # User-reported clarity
+  control_rating: 1-5  # User-reported sense of control
+  sample_size: integer  # Number of users surveyed
+  comments:
+    - "string"
+
+# Findings and Recommendations
+findings:
+  strengths:
+    - "string"
+
+  weaknesses:
+    - "string"
+
+  compliance_gaps:
+    - "string"
+
+  security_concerns:
+    - "string"
+
+recommendations:
+  high_priority:
+    - issue: "string"
+      recommendation: "string"
+      estimated_effort: "low | medium | high"
+
+  medium_priority:
+    - issue: "string"
+      recommendation: "string"
+      estimated_effort: "low | medium | high"
+
+  low_priority:
+    - issue: "string"
+      recommendation: "string"
+      estimated_effort: "low | medium | high"
+
+# Certification (if applicable)
+certification:
+  certified: boolean
+  certification_level: "basic | standard | advanced | none"
+  valid_until: "YYYY-MM-DD"  # ISO 8601 date
+  certifying_authority: "string"
+  certificate_id: "string"
+
+# Next Steps
+next_steps:
+  remediation_required: boolean
+  re_assessment_date: "YYYY-MM-DD"  # ISO 8601 date
+  follow_up_required: boolean
+  escalation_needed: boolean
+
+# Assessment Summary
+summary: "string"  # Executive summary of assessment (2-3 paragraphs)
+
+# Attachments (references)
+attachments:
+  governance_declaration: "path/to/file"
+  audit_logs: "path/to/file"
+  test_reports: "path/to/file"
+  user_feedback_data: "path/to/file"

@@ -1,0 +1,12 @@
+# TrustByDesign Requirements
+# Install with: pip install -r requirements.txt
+
+# Core dependencies for validation tools
+pyyaml>=6.0
+
+# Testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional: For enhanced validation
+jsonschema>=4.0.0
