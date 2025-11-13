@@ -34,7 +34,7 @@ class SafetyValidator:
         self._check_system_info(config)
         self._check_capability_boundaries(config)
 
-        if self.safety_level >= 1:
+        if self.safety_level == 1:
             self._check_transparency(config, required=False)
 
         if self.safety_level >= 2:
