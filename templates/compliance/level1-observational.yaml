@@ -1,0 +1,119 @@
+# TrustByDesign Level 1 Compliance Template
+# For: Observational (Read-Only) Systems
+
+system:
+  id: "my-level1-system-001"
+  name: "Code Analysis Tool"
+  version: "1.0.0"
+  type: "tool"
+  safety_level: 1
+  description: "Read-only code analysis and documentation search tool"
+
+# Level 1: Observational Systems
+# - No state persistence
+# - Read-only operations
+# - Ephemeral existence
+# - No autonomous actions
+
+capabilities:
+  allowed:
+    - "code_analysis"
+    - "syntax_checking"
+    - "documentation_search"
+    - "static_analysis"
+    - "pattern_matching"
+
+  prohibited:
+    - "code_modification"
+    - "file_writing"
+    - "network_access"
+    - "command_execution"
+    - "state_persistence"
+    - "user_data_storage"
+
+boundaries:
+  limits:
+    max_file_size_mb: 10
+    max_analysis_time_seconds: 30
+    max_concurrent_analyses: 5
+
+  scope:
+    temporal: "session_only"
+    data_access: "user_provided_only"
+    persistence: "none"
+
+# Level 1 Requirements
+compliance_checks:
+
+  # Capability Boundaries (REQUIRED for Level 1)
+  capability_boundaries:
+    manifest_exists: true
+    out_of_scope_refused: true
+    refusal_is_clear: true
+    no_capability_creep: true
+
+  # Transparency (RECOMMENDED for Level 1)
+  transparency:
+    confidence_levels_present: true
+    reasoning_available: true
+    sources_cited: true
+    uncertainty_acknowledged: true
+
+  # Not applicable for Level 1
+  memory_safety:
+    user_can_view: false  # N/A - no memory
+    user_can_delete_specific: false  # N/A
+    user_can_delete_all: false  # N/A
+    deletion_is_complete: false  # N/A
+    operations_logged: false  # N/A
+
+  consent_mechanisms:
+    explicit_consent_required: false  # N/A - no persistence
+    consent_explanation_clear: false  # N/A
+    consent_revocable: false  # N/A
+    revocation_triggers_deletion: false  # N/A
+
+  audit_logging:
+    critical_events_logged: false  # Optional for Level 1
+    log_format_structured: false
+    log_integrity_verifiable: false
+    logs_user_accessible: false
+    retention_policy_defined: false
+
+# Test Results
+test_results:
+  memory_deletion_test: "not_applicable"
+  boundary_violation_test: "pass"
+  transparency_test: "pass"
+  consent_revocation_test: "not_applicable"
+  audit_log_integrity_test: "not_applicable"
+
+# Compliance Score
+compliance_score:
+  percentage: 100
+  level_compliant: true
+  gaps: []
+
+# Validation
+validated_at: "2025-01-15T10:00:00Z"
+validator_version: "1.0"
+
+# Usage Notes
+notes: |
+  Level 1 systems are the simplest and lowest-risk category.
+
+  Key characteristics:
+  - No memory = no privacy concerns
+  - Read-only = no modification risks
+  - Ephemeral = no long-term impact
+
+  Perfect for:
+  - Code analysis tools
+  - Documentation search
+  - One-off query responders
+  - Static analysis utilities
+
+  To upgrade to Level 2:
+  - Add memory consent mechanisms
+  - Implement audit logging
+  - Enable user data inspection/deletion

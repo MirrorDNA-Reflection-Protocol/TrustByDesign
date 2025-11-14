@@ -19,7 +19,18 @@ This is NOT a set of external restrictions—it's a framework for systems that a
 - **Developers**: Building agents with MirrorDNA, LingOS, or ActiveMirrorOS
 - **System Designers**: Architecting reflective AI systems with memory and continuity
 - **Auditors**: Validating that deployed systems meet safety and governance standards
+- **Compliance Officers**: Generating policies and maintaining governance documentation
 - **Researchers**: Understanding principled approaches to AI safety in persistent agents
+
+## Governance Layer Features
+
+TrustByDesign provides complete governance infrastructure:
+
+✅ **Compliance Templates** — Ready-to-use templates for Levels 1, 2, and 3
+✅ **Audit Trail Templates** — JSON formats compatible with Glyphtrail
+✅ **Policy Generators** — Interactive tools to create governance declarations
+✅ **Integration Examples** — Full working code demonstrating all safety protocols
+✅ **Validation Tools** — Automated compliance checking and trust assessment
 
 ## How It Fits Into the Ecosystem
 
@@ -47,24 +58,47 @@ Read the core documents:
 - [Safety Protocols](docs/safety-protocols.md) — Operational safety requirements
 - [Governance Model](docs/governance-model.md) — How systems self-govern and audit
 
-### 2. Use Assessment Schemas
+### 2. Generate Compliance Checklist
 
-Validate your system against TrustByDesign standards:
+Create a customized checklist for your safety level:
 
 ```bash
-# Check if your agent config meets safety requirements
-python tooling/validate_safety.py --config your-agent-config.json
+# Generate Level 2 checklist
+python tooling/generate_compliance_checklist.py --level 2 --type agent --name "My Agent" --output checklist.yaml
 
-# Generate a trust assessment report
-python tooling/assess_trust.py --system your-system-spec.yaml
+# Or use pre-made templates
+cp templates/compliance/level2-chatbot.yaml my-checklist.yaml
 ```
 
-### 3. Apply Templates
+### 3. Validate Compliance
 
-Start with practical examples:
-- [Safety Checklist Template](examples/safety-checklist.yaml)
-- [Governance Declaration](examples/governance-declaration.md)
-- [Trust Audit Report Template](examples/trust-audit-template.md)
+Check your system against TrustByDesign standards:
+
+```bash
+# Validate your configuration
+python tooling/validate_safety.py --level 2 --config my-checklist.yaml
+
+# Generate trust assessment
+python tooling/assess_trust.py --system "My Agent" --output assessment.json
+```
+
+### 4. Use Templates & Examples
+
+Start with practical templates:
+
+**Compliance Templates** (by level):
+- [Level 1 (Observational)](templates/compliance/level1-observational.yaml)
+- [Level 2 (Interactive Chatbot)](templates/compliance/level2-chatbot.yaml)
+- [Level 3 (Autonomous Agent)](templates/compliance/level3-autonomous-agent.yaml)
+
+**Audit Trail Templates**:
+- [Basic Audit Log](templates/audit-trails/basic-audit-log.json)
+- [Glyphtrail-Compatible](templates/audit-trails/glyphtrail-compatible.json)
+- [Monthly Summary](templates/audit-trails/monthly-summary.json)
+
+**Working Examples**:
+- [Complete Level 2 Agent](integrations/example_level2_agent.py) — Full implementation
+- [MirrorDNA Integration](integrations/mirrordna_integration.py) — Ecosystem integration
 
 ## Repository Structure
 
@@ -77,15 +111,23 @@ TrustByDesign/
 ├── schemas/            # Validation schemas
 │   ├── safety-check.json
 │   ├── trust-assessment.yaml
-│   └── compliance-spec.json
-├── examples/           # Templates and sample implementations
+│   └── governance-declaration.yaml
+├── templates/          # Ready-to-use templates
+│   ├── compliance/     # Compliance templates by level
+│   ├── audit-trails/   # Audit log format templates
+│   └── policies/       # Policy templates
+├── examples/           # Sample implementations
 │   ├── safety-checklist.yaml
 │   ├── governance-declaration.md
 │   └── trust-audit-template.md
-├── tooling/            # Validation and assessment utilities
+├── integrations/       # Full working examples
+│   ├── example_level2_agent.py
+│   └── mirrordna_integration.py
+├── tooling/            # Validation and generation tools
 │   ├── validate_safety.py
 │   ├── assess_trust.py
-│   └── check_compliance.py
+│   ├── generate_governance.py
+│   └── generate_compliance_checklist.py
 ├── docs/               # Comprehensive documentation
 │   ├── core-principles.md
 │   ├── safety-protocols.md

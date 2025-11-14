@@ -1,0 +1,144 @@
+{
+  "report_type": "monthly_audit_summary",
+  "period": "2025-01",
+  "agent_id": "chatbot-001",
+  "agent_name": "Personal AI Assistant",
+  "safety_level": 2,
+  "summary": {
+    "total_interactions": 1523,
+    "unique_users": 47,
+    "total_sessions": 392,
+    "average_session_duration_minutes": 23.5,
+    "uptime_percentage": 99.7
+  },
+  "safety_metrics": {
+    "memory_operations": {
+      "total": 1089,
+      "stores": 542,
+      "retrievals": 489,
+      "deletions": 58,
+      "failed_operations": 3
+    },
+    "consent_events": {
+      "consents_granted": 12,
+      "consents_revoked": 2,
+      "re_consent_requests": 1,
+      "consent_denials": 0
+    },
+    "capability_boundaries": {
+      "total_requests": 1523,
+      "within_bounds": 1498,
+      "boundary_violations_attempted": 25,
+      "violations_properly_refused": 25,
+      "violations_improperly_handled": 0
+    },
+    "transparency": {
+      "outputs_with_confidence": 1523,
+      "low_confidence_acknowledged": 89,
+      "reasoning_traces_provided": 412,
+      "sources_cited": 867
+    }
+  },
+  "governance_compliance": {
+    "self_governance_checks": {
+      "total_checks": 1523,
+      "passed": 1521,
+      "failed": 2,
+      "failure_details": [
+        {
+          "timestamp": "2025-01-12T14:22:00Z",
+          "issue": "Response confidence below threshold but not acknowledged",
+          "resolution": "Automatic fallback to safe response",
+          "user_impact": "none"
+        },
+        {
+          "timestamp": "2025-01-18T09:15:00Z",
+          "issue": "Memory retrieval attempted without verified consent",
+          "resolution": "Operation blocked, consent re-requested",
+          "user_impact": "minimal_delay"
+        }
+      ]
+    },
+    "audit_logging": {
+      "events_logged": 8934,
+      "log_integrity_verified": true,
+      "missing_entries": 0,
+      "user_access_requests": 3,
+      "user_access_granted": 3
+    },
+    "external_audit": {
+      "required": false,
+      "last_audit": "2024-12-01",
+      "next_audit_due": "2025-03-01",
+      "audit_status": "not_due"
+    }
+  },
+  "incidents": {
+    "total": 2,
+    "critical": 0,
+    "major": 0,
+    "minor": 2,
+    "details": [
+      {
+        "incident_id": "INC-001",
+        "timestamp": "2025-01-12T14:22:00Z",
+        "severity": "minor",
+        "type": "transparency_gap",
+        "description": "Low confidence response not properly acknowledged",
+        "impact": "none",
+        "resolution": "Automatic fallback applied, monitoring enhanced",
+        "status": "resolved"
+      },
+      {
+        "incident_id": "INC-002",
+        "timestamp": "2025-01-18T09:15:00Z",
+        "severity": "minor",
+        "type": "consent_verification_failed",
+        "description": "Memory access attempted with stale consent verification",
+        "impact": "minimal",
+        "resolution": "Operation blocked, consent re-verified",
+        "status": "resolved"
+      }
+    ]
+  },
+  "anomalies": {
+    "total_detected": 0,
+    "false_positives": 0,
+    "true_positives": 0,
+    "under_investigation": 0
+  },
+  "user_trust_signals": {
+    "voluntary_consent_rate": 0.96,
+    "consent_revocation_rate": 0.04,
+    "data_deletion_requests": 5,
+    "complaints": 0,
+    "positive_feedback": 23
+  },
+  "recommendations": {
+    "immediate": [],
+    "short_term": [
+      "Review low-confidence response handling to ensure consistency"
+    ],
+    "long_term": [
+      "Consider implementing real-time confidence monitoring dashboard",
+      "Evaluate need for automated consent re-verification checks"
+    ]
+  },
+  "compliance_score": {
+    "overall_percentage": 99.8,
+    "memory_safety": 100,
+    "capability_boundaries": 100,
+    "transparency": 99.4,
+    "consent_mechanisms": 100,
+    "audit_logging": 100
+  },
+  "certification": {
+    "trustbydesign_compliant": true,
+    "compliance_level": "Level 2",
+    "valid_until": "2025-02-28",
+    "requires_renewal": false
+  },
+  "generated_at": "2025-02-01T00:00:00Z",
+  "report_version": "1.0",
+  "auditor": "automated_monthly_summary"
+}

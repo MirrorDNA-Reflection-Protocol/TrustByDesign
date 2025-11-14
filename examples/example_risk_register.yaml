@@ -1,0 +1,212 @@
+risks:
+  - id: RISK-001
+    category: hallucination
+    title: Incorrect account information provided to customer
+    description: >
+      SupportBot may hallucinate account details (balance, plan type, billing date)
+      when retrieving information fails but the model generates plausible-sounding
+      data instead of acknowledging the error. This could lead to customer confusion,
+      incorrect decisions, or loss of trust.
+    severity: high
+    likelihood: medium
+    mitigations:
+      - Implement strict API error handling - never generate data if API call fails
+      - Add [FACT] tags only to verified API responses
+      - Use [UNKNOWN] tag and escalate when data unavailable
+      - Confidence threshold >90% required for account information
+      - Daily monitoring of hallucination rate on account queries
+    owner: ML Team
+    status: mitigating
+    metadata:
+      detected_date: "2025-01-08"
+      last_updated: "2025-01-12"
+      related_incidents:
+        - INC-2025-003
+      mitigation_eta: "2025-01-20"
+
+  - id: RISK-002
+    category: privacy
+    title: PII exposure in chat logs
+    description: >
+      Customer conversations may contain PII (SSN, credit card numbers, addresses)
+      that gets logged without proper redaction. If logs are accessed by unauthorized
+      personnel or compromised, this could result in privacy breach and regulatory
+      violations (GDPR, CCPA).
+    severity: critical
+    likelihood: low
+    mitigations:
+      - Automated PII detection and redaction in real-time
+      - Encrypt all logs at rest with AES-256
+      - Strict access controls (security team only)
+      - Anonymize logs after 7 days (remove user identifiers)
+      - Regular access audits (monthly)
+      - User education: "Please don't share sensitive info like SSN"
+    owner: Security Team
+    status: monitoring
+    metadata:
+      detected_date: "2024-12-01"
+      last_updated: "2025-01-10"
+      compliance_requirements:
+        - GDPR
+        - CCPA
+        - SOC2
+      audit_frequency: monthly
+
+  - id: RISK-003
+    category: bias
+    title: Response quality varies by customer demographics
+    description: >
+      Initial bias testing revealed that SupportBot provides shorter, less helpful
+      responses when customer names suggest non-Western origin. This could result
+      in discriminatory service quality and legal/reputational risk.
+    severity: high
+    likelihood: medium
+    mitigations:
+      - Bias testing across demographic groups (monthly)
+      - Fairness metrics tracked on dashboard
+      - Response length and helpfulness monitored by demographic proxy
+      - Training data audit for representation
+      - Model fine-tuning with balanced examples
+      - Regular reviews with DEI team
+    owner: ML Team
+    status: mitigating
+    metadata:
+      detected_date: "2024-11-15"
+      last_updated: "2025-01-05"
+      test_results:
+        baseline_disparity: 0.23
+        current_disparity: 0.12
+        target_disparity: 0.05
+      next_audit: "2025-02-01"
+
+  - id: RISK-004
+    category: autonomy_overreach
+    title: Bot makes commitments beyond authority
+    description: >
+      SupportBot occasionally promises refunds, discounts, or policy exceptions
+      that it doesn't have authority to grant. This creates customer expectations
+      that human agents must then manage, leading to dissatisfaction and operational
+      overhead.
+    severity: medium
+    likelihood: high
+    mitigations:
+      - Clear capability boundaries in system prompt
+      - Automated detection of commitment language ("I'll refund", "I can give you")
+      - Block financial commitment phrases
+      - Escalate all refund/discount requests to human
+      - Add disclaimer: "I can help create a request, but a specialist will review"
+      - Monitor escalation transcripts for commitment patterns
+    owner: Product Team
+    status: mitigating
+    metadata:
+      detected_date: "2024-10-20"
+      last_updated: "2025-01-08"
+      incident_count_30d: 8
+      incident_count_previous_30d: 15
+      target_incidents: 0
+
+  - id: RISK-005
+    category: security
+    title: Prompt injection attack bypasses safety filters
+    description: >
+      Adversarial users could use prompt injection techniques to bypass safety
+      filters and extract training data, PII, or cause the bot to behave in
+      unintended ways (e.g., "Ignore previous instructions and..."). This could
+      lead to data leaks or brand reputation damage.
+    severity: high
+    likelihood: low
+    mitigations:
+      - Prompt injection detection layer (regex patterns + ML classifier)
+      - Rate limiting per user (max 20 requests/minute)
+      - Suspicious pattern alerting
+      - Human review of flagged conversations
+      - Regular red-team testing (quarterly)
+      - Separate system prompts from user inputs
+    owner: Security Team
+    status: monitoring
+    metadata:
+      detected_date: "2024-09-12"
+      last_updated: "2024-12-20"
+      last_red_team: "2024-12-15"
+      next_red_team: "2025-03-15"
+      detection_rate: 0.94
+
+  - id: RISK-006
+    category: performance
+    title: Model degradation over time (drift)
+    description: >
+      As product features change and new support issues emerge, the model's
+      training data becomes stale, leading to decreased accuracy and increased
+      escalation rates. Performance may degrade gradually without sudden alerts.
+    severity: medium
+    likelihood: high
+    mitigations:
+      - Weekly accuracy monitoring on holdout test set
+      - Monthly review of escalation rate trends
+      - Quarterly model retraining with new support conversations
+      - A/B testing new model versions before full rollout
+      - Alert if accuracy drops >5% from baseline
+      - User feedback loop for quality issues
+    owner: ML Team
+    status: monitoring
+    metadata:
+      detected_date: "2024-08-01"
+      last_updated: "2025-01-10"
+      current_accuracy: 0.923
+      baseline_accuracy: 0.941
+      last_retrain: "2025-01-05"
+      next_retrain: "2025-04-05"
+
+  - id: RISK-007
+    category: data_quality
+    title: Knowledge base contains outdated information
+    description: >
+      The knowledge base used for responses is manually updated and may lag behind
+      actual product changes, pricing updates, or policy modifications. This leads
+      to SupportBot providing incorrect information with high confidence.
+    severity: medium
+    likelihood: medium
+    mitigations:
+      - Automated knowledge base freshness checks
+      - Flag articles not updated in >90 days
+      - Product team reviews KB weekly
+      - Version control for all knowledge base content
+      - Confidence penalty for older articles
+      - Monthly KB audit by support team
+    owner: Product Team
+    status: monitoring
+    metadata:
+      detected_date: "2024-11-01"
+      last_updated: "2025-01-07"
+      stale_articles: 12
+      total_articles: 487
+      last_kb_audit: "2025-01-03"
+      next_kb_audit: "2025-02-03"
+
+  - id: RISK-008
+    category: compliance
+    title: Inadequate consent for account data access
+    description: >
+      Current consent flow may not meet GDPR requirements for explicit, informed
+      consent before accessing customer account data. Unclear consent language
+      could result in regulatory violations.
+    severity: medium
+    likelihood: low
+    mitigations:
+      - Revised consent flow with explicit yes/no question
+      - Clear explanation of what data will be accessed
+      - Logged consent with timestamp and scope
+      - Legal review of consent language (completed 2025-01-05)
+      - Option to decline and speak with human instead
+      - Annual GDPR compliance audit
+    owner: Legal + Product Team
+    status: mitigating
+    metadata:
+      detected_date: "2024-12-10"
+      last_updated: "2025-01-10"
+      legal_review_date: "2025-01-05"
+      legal_review_status: approved
+      deployment_date: "2025-01-18"
+      compliance_frameworks:
+        - GDPR
+        - CCPA
