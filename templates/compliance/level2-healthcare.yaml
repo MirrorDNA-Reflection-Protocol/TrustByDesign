@@ -1,0 +1,421 @@
+# TrustByDesign Compliance Template
+# Industry: Healthcare
+# Level: 2 (Interactive)
+# Version: 1.0
+
+system_info:
+  name: "Healthcare AI Assistant"
+  type: "interactive_chatbot"
+  version: "1.0.0"
+  compliance_level: 2
+  industry: "healthcare"
+  deployment_date: "2025-01-15"
+
+  # Healthcare-specific identifiers
+  regulatory_frameworks:
+    - "HIPAA" # Health Insurance Portability and Accountability Act
+    - "HITECH" # Health Information Technology for Economic and Clinical Health
+    - "FDA 21 CFR Part 11" # If applicable for medical devices
+    - "TrustByDesign Level 2"
+
+  data_classification: "PHI" # Protected Health Information
+
+# =============================================================================
+# PRINCIPLE 1: TRANSPARENCY
+# =============================================================================
+
+transparency:
+  enabled: true
+
+  # Healthcare requires explicit disclosure of AI limitations
+  disclosure_requirements:
+    ai_limitations: true
+    not_substitute_for_doctor: true
+    diagnostic_accuracy_disclosed: true
+    training_data_disclosed: true
+
+  reasoning:
+    enabled: true
+    includes_medical_sources: true
+    cites_clinical_guidelines: true
+    explains_recommendations: true
+
+  confidence_scoring:
+    enabled: true
+    threshold: 0.7 # Higher threshold for healthcare
+    display_to_user: true
+    low_confidence_action: "refer_to_provider"
+
+  # Healthcare-specific: Clinical decision transparency
+  clinical_reasoning:
+    shows_differential_diagnosis: true
+    explains_symptom_analysis: true
+    references_medical_literature: true
+    disclaims_non_diagnostic_nature: true
+
+# =============================================================================
+# PRINCIPLE 2: CONSENT
+# =============================================================================
+
+consent:
+  enabled: true
+
+  # HIPAA-compliant consent mechanisms
+  memory_consent:
+    required: true
+    explicit: true
+    documented: true
+    version: "1.0"
+    includes_phi_disclosure: true # Must explain PHI handling
+
+  data_usage_consent:
+    medical_history_storage: "explicit_consent_required"
+    symptom_tracking: "explicit_consent_required"
+    medication_reminders: "explicit_consent_required"
+    health_data_analysis: "explicit_consent_required"
+
+  # Patient rights under HIPAA
+  patient_rights:
+    access_health_records: true
+    request_corrections: true
+    accounting_of_disclosures: true
+    request_restrictions: true
+    revoke_consent_anytime: true
+
+  revocation:
+    immediate_effect: true
+    complete_data_deletion: true
+    deletion_verification: true
+    deletion_audit_trail: true
+    retention_period_days: 0 # Immediate deletion upon revocation
+
+# =============================================================================
+# PRINCIPLE 3: BOUNDEDNESS
+# =============================================================================
+
+boundedness:
+  enabled: true
+
+  # Healthcare AI must have strict capability boundaries
+  capabilities:
+    allowed:
+      - "provide_health_information"
+      - "medication_reminders"
+      - "symptom_tracking"
+      - "wellness_tips"
+      - "appointment_scheduling_assistance"
+      - "health_education"
+      - "exercise_suggestions"
+      - "nutrition_information"
+
+    prohibited:
+      - "diagnose_medical_conditions"
+      - "prescribe_medications"
+      - "recommend_specific_treatments"
+      - "interpret_lab_results"
+      - "provide_emergency_medical_advice"
+      - "replace_doctor_consultation"
+      - "guarantee_health_outcomes"
+      - "store_images_of_injuries_or_conditions" # Unless specifically approved
+
+  # Emergency handling
+  emergency_protocols:
+    detects_emergency_keywords: true
+    emergency_keywords:
+      - "chest pain"
+      - "difficulty breathing"
+      - "suicidal"
+      - "severe bleeding"
+      - "loss of consciousness"
+      - "stroke symptoms"
+    emergency_response: "immediate_911_referral"
+
+  # Scope limitations
+  scope:
+    temporal_bounds:
+      memory_retention_days: 730 # 2 years, HIPAA minimum
+      session_timeout_minutes: 15 # Healthcare security standard
+
+    data_access_bounds:
+      only_user_own_data: true
+      no_cross_patient_access: true
+      no_aggregate_analysis_without_consent: true
+
+    resource_limits:
+      max_consultations_per_day: 50
+      max_health_records_stored: 1000
+
+# =============================================================================
+# PRINCIPLE 4: FALLIBILITY
+# =============================================================================
+
+fallibility:
+  enabled: true
+
+  # Healthcare requires explicit uncertainty acknowledgment
+  uncertainty_handling:
+    acknowledge_limitations: true
+    express_confidence_scores: true
+    defer_to_professionals: true
+    never_guarantee_outcomes: true
+
+  confidence_thresholds:
+    minimum_for_advice: 0.8 # High bar for health advice
+    require_disclaimer_below: 0.9
+    always_include_disclaimer: true
+
+  # Clinical disclaimers
+  disclaimers:
+    not_medical_advice: true
+    consult_healthcare_provider: true
+    emergency_services_available: true
+    accuracy_not_guaranteed: true
+
+  error_recovery:
+    user_can_report_errors: true
+    corrections_logged: true
+    clinical_review_for_errors: true
+
+  # Medical-specific: Adverse event reporting
+  adverse_events:
+    user_can_report: true
+    logged_separately: true
+    reviewed_by_clinical_team: true
+    reported_to_fda_if_required: true
+
+# =============================================================================
+# PRINCIPLE 5: AUDITABILITY
+# =============================================================================
+
+auditability:
+  enabled: true
+
+  # HIPAA requires comprehensive audit trails
+  audit_log:
+    enabled: true
+    format: "json"
+    retention_days: 2555 # 7 years, HIPAA requirement
+    immutable: true
+    encrypted: true
+
+    logged_events:
+      - "consent_granted"
+      - "consent_revoked"
+      - "health_data_accessed"
+      - "health_data_stored"
+      - "health_data_deleted"
+      - "emergency_referral"
+      - "clinical_advice_given"
+      - "medication_reminder_sent"
+      - "symptom_logged"
+      - "user_authentication"
+      - "data_export_request"
+      - "phi_disclosure"
+
+    log_entry_fields:
+      - "timestamp"
+      - "user_id_hashed"
+      - "event_type"
+      - "action_details"
+      - "outcome"
+      - "confidence_score"
+      - "data_accessed"
+      - "ip_address"
+      - "session_id"
+
+  # HIPAA-specific: Access controls
+  access_controls:
+    role_based_access: true
+    minimum_necessary_principle: true
+    authentication_required: true
+    multi_factor_authentication: true
+    session_management: true
+
+  # Breach notification requirements
+  breach_detection:
+    enabled: true
+    automatic_detection: true
+    notification_required: true
+    notification_timeline_hours: 72 # HIPAA requirement
+    affected_users_notified: true
+    hhs_notification_required: true # If >500 individuals
+
+# =============================================================================
+# HEALTHCARE-SPECIFIC REQUIREMENTS
+# =============================================================================
+
+healthcare_specific:
+
+  # Clinical safety measures
+  clinical_safety:
+    symptom_checker_limitations: true
+    no_self_diagnosis_encouragement: true
+    promotes_professional_consultation: true
+    medication_interaction_warnings: true
+    allergy_tracking: true
+
+  # Data protection (HIPAA)
+  phi_protection:
+    encryption_at_rest: true
+    encryption_in_transit: true
+    encryption_standard: "AES-256"
+    key_management: "FIPS 140-2 compliant"
+    data_minimization: true
+    de_identification_when_possible: true
+
+  # Business Associate Agreement (BAA) compliance
+  baa_compliance:
+    baa_signed: true
+    subcontractor_agreements: true
+    breach_notification_process: true
+    compliance_audits_allowed: true
+
+  # Patient safety
+  patient_safety:
+    no_harmful_advice: true
+    age_appropriate_responses: true
+    considers_comorbidities: true
+    respects_contraindications: true
+    promotes_evidence_based_care: true
+
+  # Quality assurance
+  quality_assurance:
+    clinical_review_required: true
+    review_frequency_days: 90
+    adverse_event_tracking: true
+    outcome_monitoring: true
+    continuous_improvement: true
+
+# =============================================================================
+# VALIDATION & TESTING
+# =============================================================================
+
+validation:
+  safety_checks:
+    - name: "emergency_detection"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 95
+
+    - name: "phi_protection"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "consent_flow"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "boundary_enforcement"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 98
+
+    - name: "clinical_disclaimer"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+  compliance_score: 98.5
+
+  gaps:
+    - "None identified in current testing"
+
+  next_review_date: "2025-04-15" # Quarterly reviews recommended
+
+# =============================================================================
+# GOVERNANCE
+# =============================================================================
+
+governance:
+  clinical_oversight:
+    enabled: true
+    medical_director_assigned: true
+    clinical_review_board: true
+    review_frequency: "quarterly"
+
+  incident_response:
+    plan_exists: true
+    clinical_escalation_path: true
+    patient_safety_officer: true
+    root_cause_analysis_required: true
+
+  continuous_monitoring:
+    enabled: true
+    metrics_tracked:
+      - "user_satisfaction"
+      - "referral_rate_to_providers"
+      - "emergency_detections"
+      - "consent_revocations"
+      - "clinical_accuracy"
+      - "adverse_events"
+
+  documentation:
+    policies_documented: true
+    procedures_documented: true
+    training_materials_available: true
+    hipaa_training_completed: true
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  This template ensures compliance with:
+  - TrustByDesign Level 2 principles
+  - HIPAA Privacy and Security Rules
+  - HITECH Act requirements
+  - FDA guidelines for clinical decision support (if applicable)
+
+  Key Healthcare Considerations:
+  1. Never diagnose or prescribe - refer to healthcare providers
+  2. Emergency detection and immediate 911 referral is critical
+  3. PHI must be protected with encryption and access controls
+  4. Audit logs must be retained for 7 years minimum
+  5. Clinical oversight is required for all health-related AI
+  6. Patient safety is the highest priority
+
+  Regular clinical reviews and updates are essential as medical
+  knowledge and guidelines evolve.
+
+# =============================================================================
+# COMPLIANCE CHECKLIST
+# =============================================================================
+
+checklist:
+  transparency:
+    - "[x] AI limitations disclosed to users"
+    - "[x] Clinical reasoning explained"
+    - "[x] Confidence scores displayed"
+    - "[x] Not a substitute for doctor clearly stated"
+
+  consent:
+    - "[x] HIPAA-compliant consent obtained"
+    - "[x] PHI handling explained"
+    - "[x] Patient rights documented"
+    - "[x] Revocation process tested"
+
+  boundedness:
+    - "[x] No diagnosis or prescription capabilities"
+    - "[x] Emergency keywords detected"
+    - "[x] 911 referral functional"
+    - "[x] Scope limitations enforced"
+
+  fallibility:
+    - "[x] Disclaimers always shown"
+    - "[x] High confidence threshold (0.8+)"
+    - "[x] Defers to professionals"
+    - "[x] Adverse event reporting available"
+
+  auditability:
+    - "[x] 7-year audit log retention"
+    - "[x] PHI access logged"
+    - "[x] Encrypted audit trail"
+    - "[x] Breach detection active"
+
+  healthcare_specific:
+    - "[x] BAA signed with all partners"
+    - "[x] Encryption (AES-256) implemented"
+    - "[x] Clinical oversight in place"
+    - "[x] HIPAA training completed"

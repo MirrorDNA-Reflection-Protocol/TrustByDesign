@@ -178,6 +178,8 @@ def strip_tags(text: str) -> str:
     result = text
     for tag in ALL_TAGS:
         result = result.replace(tag, '')
+    # Normalize multiple spaces to single space
+    result = re.sub(r'\s+', ' ', result)
     return result.strip()
 
 
@@ -213,9 +215,9 @@ def uncertainty_report(text: str) -> str:
     Example:
         >>> text = "[FACT] A. [ESTIMATE] B. [UNKNOWN] C."
         >>> print(uncertainty_report(text))
-        Uncertainty Analysis
+        Uncertainty Report
         ====================
-        Total Tags: 3
+        Total tagged statements: 3
         - [FACT]: 1
         - [ESTIMATE]: 1
         - [UNKNOWN]: 1
@@ -226,9 +228,9 @@ def uncertainty_report(text: str) -> str:
     detected = detect_tags(text)
 
     lines = [
-        "Uncertainty Analysis",
+        "Uncertainty Report",
         "=" * 40,
-        f"Total Tags: {total}",
+        f"Total tagged statements: {total}",
         ""
     ]
 
@@ -261,18 +263,21 @@ def is_tagged(text: str) -> bool:
     return any(tag in text for tag in ALL_TAGS)
 
 
-def get_tag_percentage(text: str) -> Dict[str, float]:
+def get_tag_percentage(text: str, tag: str = None) -> float | Dict[str, float]:
     """
-    Calculate percentage of each tag type.
+    Calculate percentage of a specific tag type or all tag types.
 
     Args:
         text: Tagged text
+        tag: Specific tag to calculate percentage for (optional)
 
     Returns:
-        Dict mapping tags to percentages
+        Float percentage if tag specified, otherwise dict mapping tags to percentages
 
     Example:
         >>> text = "[FACT] A. [FACT] B. [ESTIMATE] C."
+        >>> get_tag_percentage(text, '[FACT]')
+        66.67
         >>> get_tag_percentage(text)
         {'[FACT]': 66.67, '[ESTIMATE]': 33.33, '[UNKNOWN]': 0.0, ...}
     """
@@ -280,9 +285,17 @@ def get_tag_percentage(text: str) -> Dict[str, float]:
     total = sum(counts.values())
 
     if total == 0:
-        return {tag: 0.0 for tag in ALL_TAGS}
+        if tag:
+            return 0.0
+        return {t: 0.0 for t in ALL_TAGS}
 
+    if tag:
+        # Return percentage for specific tag
+        count = counts.get(tag, 0)
+        return round((count / total) * 100, 2)
+
+    # Return percentages for all tags
     return {
-        tag: round((count / total) * 100, 2)
-        for tag, count in counts.items()
+        t: round((count / total) * 100, 2)
+        for t, count in counts.items()
     }

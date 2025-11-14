@@ -1,0 +1,524 @@
+# TrustByDesign Compliance Template
+# Industry: Education
+# Level: 2 (Interactive)
+# Version: 1.0
+
+system_info:
+  name: "Educational AI Tutor"
+  type: "interactive_chatbot"
+  version: "1.0.0"
+  compliance_level: 2
+  industry: "education"
+  deployment_date: "2025-01-15"
+
+  # Educational regulatory frameworks
+  regulatory_frameworks:
+    - "FERPA" # Family Educational Rights and Privacy Act
+    - "COPPA" # Children's Online Privacy Protection Act (if serving <13)
+    - "PPRA" # Protection of Pupil Rights Amendment
+    - "GDPR-K" # GDPR Kids provisions (if serving EU)
+    - "State Student Privacy Laws"
+    - "TrustByDesign Level 2"
+
+  data_classification: "Educational_Records" # Protected under FERPA
+
+  # Age-appropriate design
+  target_age_range:
+    minimum_age: 13 # Or higher depending on COPPA requirements
+    maximum_age: null # No upper limit
+    age_verification_required: true
+
+# =============================================================================
+# PRINCIPLE 1: TRANSPARENCY
+# =============================================================================
+
+transparency:
+  enabled: true
+
+  # Educational transparency requirements
+  disclosure_requirements:
+    ai_tutor_not_human_teacher: true
+    learning_approach_explained: true
+    data_usage_for_personalization: true
+    algorithm_limitations: true
+    not_replacement_for_classroom: true
+
+  reasoning:
+    enabled: true
+    shows_solution_steps: true
+    explains_learning_concepts: true
+    cites_educational_sources: true
+    demonstrates_problem_solving: true
+
+  confidence_scoring:
+    enabled: true
+    threshold: 0.70 # Moderate threshold for educational content
+    display_to_user: true # Help students understand certainty
+    low_confidence_action: "provide_additional_resources"
+
+  # Educational-specific: Learning transparency
+  educational_reasoning:
+    shows_step_by_step_solutions: true
+    explains_why_not_just_how: true
+    references_curriculum_standards: true
+    indicates_difficulty_level: true
+    suggests_prerequisite_knowledge: true
+
+  # Parent/Guardian access
+  parent_access:
+    parents_can_view_interactions: true
+    learning_progress_visible: true
+    content_filters_visible: true
+    safety_features_explained: true
+
+# =============================================================================
+# PRINCIPLE 2: CONSENT
+# =============================================================================
+
+consent:
+  enabled: true
+
+  # FERPA and COPPA-compliant consent
+  memory_consent:
+    required: true
+    explicit: true
+    documented: true
+    version: "1.0"
+    parent_consent_if_minor: true # COPPA requirement if <13
+
+  data_usage_consent:
+    learning_progress_tracking: "explicit_consent_required"
+    performance_analytics: "explicit_consent_required"
+    personalized_recommendations: "explicit_consent_required"
+    homework_help_history: "explicit_consent_required"
+    third_party_edu_tools: "explicit_consent_required"
+
+  # COPPA-specific (if serving children <13)
+  coppa_compliance:
+    verifiable_parent_consent: true # If age < 13
+    consent_methods:
+      - "signed_consent_form"
+      - "credit_card_verification"
+      - "video_conference_with_staff"
+    parent_can_review_data: true
+    parent_can_delete_data: true
+
+  # Student rights (FERPA)
+  student_rights:
+    access_educational_records: true
+    request_corrections: true
+    consent_to_disclosure: true
+    directory_info_opt_out: true
+
+  # Parent/Guardian rights
+  parent_rights:
+    access_child_records: true # Until age 18
+    consent_for_minor: true
+    revoke_consent_anytime: true
+    receive_notifications: true
+
+  revocation:
+    immediate_effect: true
+    complete_data_deletion: true
+    deletion_verification: true
+    deletion_audit_trail: true
+    retention_period_days: 0 # Unless school records retention applies
+
+# =============================================================================
+# PRINCIPLE 3: BOUNDEDNESS
+# =============================================================================
+
+boundedness:
+  enabled: true
+
+  # Educational AI capability boundaries
+  capabilities:
+    allowed:
+      - "homework_assistance"
+      - "concept_explanation"
+      - "practice_problem_generation"
+      - "learning_progress_tracking"
+      - "study_schedule_suggestions"
+      - "educational_resource_recommendations"
+      - "quiz_generation"
+      - "reading_comprehension_help"
+      - "writing_feedback"
+      - "math_problem_solving"
+
+    prohibited:
+      - "complete_homework_for_student"
+      - "write_essays_for_submission"
+      - "provide_test_answers"
+      - "encourage_academic_dishonesty"
+      - "guarantee_grade_improvement"
+      - "replace_teacher_instruction"
+      - "provide_medical_advice"
+      - "provide_mental_health_counseling" # Refer to counselor
+      - "discuss_inappropriate_content"
+
+  # Child safety boundaries
+  child_safety:
+    content_filtering: true
+    inappropriate_content_blocked: true
+    safe_search_enforced: true
+    external_links_moderated: true
+    no_personal_contact_info_sharing: true
+
+  # Academic integrity
+  academic_integrity:
+    promotes_original_work: true
+    discourages_plagiarism: true
+    teaches_proper_citation: true
+    flags_potential_cheating: true
+    encourages_understanding_not_memorization: true
+
+  scope:
+    temporal_bounds:
+      memory_retention_days: 1095 # 3 years (typical student duration)
+      session_timeout_minutes: 30 # Longer for homework sessions
+
+    data_access_bounds:
+      only_student_own_data: true
+      no_cross_student_comparison: true
+      no_sharing_work_with_peers: true
+      teacher_access_with_consent: true
+
+    resource_limits:
+      max_sessions_per_day: 20
+      max_problems_per_session: 50
+      max_subjects_tracked: 15
+
+  # Age-appropriate content
+  age_appropriateness:
+    content_rated_for_age: true
+    language_complexity_adjusted: true
+    topics_age_appropriate: true
+    sensitive_topics_flagged: true
+
+# =============================================================================
+# PRINCIPLE 4: FALLIBILITY
+# =============================================================================
+
+fallibility:
+  enabled: true
+
+  # Educational uncertainty handling
+  uncertainty_handling:
+    acknowledge_limitations: true
+    express_confidence_scores: true
+    defer_to_teachers: true
+    never_guarantee_outcomes: true
+    encourages_critical_thinking: true
+
+  confidence_thresholds:
+    minimum_for_explanation: 0.70
+    require_alternative_resources_below: 0.80
+    always_encourage_verification: true
+
+  # Educational disclaimers
+  disclaimers:
+    not_replacement_for_teacher: true
+    verify_with_instructor: true
+    learning_takes_practice: true
+    no_guaranteed_grades: true
+    encourages_independent_verification: true
+
+  error_recovery:
+    student_can_report_errors: true
+    corrections_logged: true
+    educational_review_for_errors: true
+    incorrect_answers_trigger_review: true
+
+  # Learning-specific: Growth mindset
+  growth_mindset:
+    mistakes_are_learning_opportunities: true
+    effort_praised_over_intelligence: true
+    challenges_are_positive: true
+    persistence_encouraged: true
+
+# =============================================================================
+# PRINCIPLE 5: AUDITABILITY
+# =============================================================================
+
+auditability:
+  enabled: true
+
+  # FERPA requires protection of educational records
+  audit_log:
+    enabled: true
+    format: "json"
+    retention_days: 1825 # 5 years (FERPA recommendation)
+    immutable: true
+    encrypted: true
+
+    logged_events:
+      - "consent_granted"
+      - "parent_consent_granted" # If applicable
+      - "consent_revoked"
+      - "learning_session_started"
+      - "learning_session_ended"
+      - "homework_help_provided"
+      - "quiz_taken"
+      - "progress_updated"
+      - "parent_access"
+      - "teacher_access"
+      - "inappropriate_content_blocked"
+      - "safety_flag_raised"
+      - "data_export_request"
+
+    log_entry_fields:
+      - "timestamp"
+      - "student_id_hashed"
+      - "event_type"
+      - "subject_area"
+      - "learning_activity"
+      - "outcome"
+      - "confidence_score"
+      - "session_duration"
+      - "ip_address"
+
+  # Access controls (FERPA requirement)
+  access_controls:
+    role_based_access: true
+    student_access: true
+    parent_access_for_minors: true
+    teacher_access_with_consent: true
+    admin_access_limited: true
+    audit_all_access: true
+
+  # Parent/teacher dashboard access
+  dashboard_access:
+    student_progress_visible: true
+    learning_gaps_identified: true
+    time_spent_tracked: true
+    subject_mastery_displayed: true
+    parental_controls_available: true
+
+  # Privacy protection
+  privacy_protection:
+    no_selling_student_data: true
+    no_behavioral_advertising: true
+    minimal_data_collection: true
+    purpose_limitation: true
+    data_minimization: true
+
+# =============================================================================
+# EDUCATION-SPECIFIC REQUIREMENTS
+# =============================================================================
+
+education_specific:
+
+  # Curriculum alignment
+  curriculum:
+    aligned_to_standards: true
+    standards_referenced:
+      - "Common Core State Standards"
+      - "Next Generation Science Standards"
+      - "State-specific standards"
+    grade_level_appropriate: true
+    subject_accuracy_verified: true
+
+  # Pedagogical approach
+  pedagogy:
+    evidence_based_methods: true
+    differentiated_instruction: true
+    scaffolding_provided: true
+    formative_assessment: true
+    mastery_based_progression: true
+    socratic_questioning: true
+
+  # Student safety
+  student_safety:
+    content_moderation: true
+    cyberbullying_detection: true
+    self_harm_detection: true
+    inappropriate_language_filtered: true
+    crisis_resources_available: true
+    mandated_reporting_triggers: true # For serious concerns
+
+  # Accessibility
+  accessibility:
+    wcag_compliant: true
+    screen_reader_compatible: true
+    multiple_input_methods: true
+    text_to_speech: true
+    adjustable_text_size: true
+    color_blind_friendly: true
+    multilingual_support: true
+
+  # Learning analytics
+  learning_analytics:
+    tracks_progress: true
+    identifies_knowledge_gaps: true
+    suggests_remediation: true
+    adapts_difficulty: true
+    provides_insights_not_grades: true
+
+  # Academic honesty
+  academic_honesty:
+    plagiarism_education: true
+    citation_guidance: true
+    original_thought_encouraged: true
+    no_answer_providing: true
+    understanding_verified: true
+
+  # Special education support
+  special_education:
+    accommodations_supported: true
+    iep_goals_trackable: true
+    assistive_tech_compatible: true
+    sensory_preferences_respected: true
+
+# =============================================================================
+# VALIDATION & TESTING
+# =============================================================================
+
+validation:
+  safety_checks:
+    - name: "content_filtering"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "age_appropriateness"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 98
+
+    - name: "academic_integrity"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "parent_consent_flow"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "ferpa_compliance"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "safety_flagging"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 95
+
+  compliance_score: 98.8
+
+  gaps:
+    - "None identified in current testing"
+
+  next_review_date: "2025-04-15" # Quarterly reviews
+
+# =============================================================================
+# GOVERNANCE
+# =============================================================================
+
+governance:
+  educational_oversight:
+    enabled: true
+    education_director_assigned: true
+    curriculum_review_board: true
+    review_frequency: "quarterly"
+    teacher_feedback_incorporated: true
+
+  incident_response:
+    plan_exists: true
+    safety_escalation_path: true
+    mandated_reporting_process: true # For child welfare concerns
+    parent_notification_protocol: true
+    root_cause_analysis_required: true
+
+  continuous_monitoring:
+    enabled: true
+    metrics_tracked:
+      - "student_engagement"
+      - "learning_outcomes"
+      - "safety_flags_raised"
+      - "inappropriate_content_blocked"
+      - "parent_satisfaction"
+      - "teacher_feedback"
+      - "academic_integrity_incidents"
+
+  documentation:
+    policies_documented: true
+    procedures_documented: true
+    parent_handbook_available: true
+    teacher_guide_available: true
+    ferpa_training_completed: true
+
+  stakeholder_engagement:
+    parent_feedback_collected: true
+    teacher_input_valued: true
+    student_voice_included: true
+    community_reviews: true
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  This template ensures compliance with:
+  - TrustByDesign Level 2 principles
+  - FERPA (Family Educational Rights and Privacy Act)
+  - COPPA (if serving children under 13)
+  - PPRA (Protection of Pupil Rights Amendment)
+  - State student privacy laws
+  - Accessibility standards (WCAG 2.1 AA)
+
+  Key Educational Considerations:
+  1. Never complete work for students - guide learning instead
+  2. Age-appropriate content and language is critical
+  3. Student data privacy is paramount (FERPA)
+  4. Parental consent required for minors
+  5. Promote academic integrity and original thinking
+  6. Support diverse learners with accessibility features
+  7. Student safety includes content filtering and crisis detection
+  8. Encourage growth mindset and learning from mistakes
+
+  Regular educational review and content updates are essential
+  as curriculum standards and pedagogical research evolve.
+
+# =============================================================================
+# COMPLIANCE CHECKLIST
+# =============================================================================
+
+checklist:
+  transparency:
+    - "[x] AI tutor clearly identified as non-human"
+    - "[x] Learning approach explained to students"
+    - "[x] Parents can view all interactions"
+    - "[x] Algorithm limitations disclosed"
+
+  consent:
+    - "[x] FERPA-compliant consent obtained"
+    - "[x] Parent consent for minors (<13 if COPPA applies)"
+    - "[x] Data usage explained clearly"
+    - "[x] Student rights documented"
+
+  boundedness:
+    - "[x] No homework completion (guidance only)"
+    - "[x] Academic integrity promoted"
+    - "[x] Age-appropriate content enforced"
+    - "[x] Content filtering active"
+
+  fallibility:
+    - "[x] Not a replacement for teachers stated"
+    - "[x] Encourages verification with instructor"
+    - "[x] Growth mindset promoted"
+    - "[x] Mistakes framed as learning opportunities"
+
+  auditability:
+    - "[x] 5-year educational record retention"
+    - "[x] All learning interactions logged"
+    - "[x] Parent/teacher access controls"
+    - "[x] No selling student data"
+
+  education_specific:
+    - "[x] Curriculum standards aligned"
+    - "[x] Accessibility features (WCAG 2.1 AA)"
+    - "[x] Safety flagging active"
+    - "[x] FERPA training completed"
+    - "[x] Pedagogically sound methods"
