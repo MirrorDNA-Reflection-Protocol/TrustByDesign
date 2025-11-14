@@ -1,18 +1,97 @@
-# Byte-compiled / optimized / DLL files
+# TrustByDesign .gitignore
+
+# Python
 __pycache__/
 *.py[cod]
-
-# C extensions
+*$py.class
 *.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
 
 # Distribution / packaging
 build/
 dist/
 *.egg-info/
+.eggs/
+wheels/
 
-# Node modules
-node_modules/
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
 
 # OS files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# Generated files (preserve templates)
+generated/
+output/
+*.generated.*
+
+# Security
+*.key
+*.pem
+*.crt
+credentials.json
+secrets.yaml
+
+# Documentation builds
+docs/_build/
+site/
+
+# Node modules (if any JS tooling added)
+node_modules/

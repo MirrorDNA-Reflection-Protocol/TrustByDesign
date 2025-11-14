@@ -182,7 +182,7 @@ Example: "[FACT] Your current plan is Premium. [ESTIMATE] Based on your usage, s
 5. Monitoring: Enhanced monitoring for 7 days
 6. Review: Post-deployment review at 30 days
 
-See: `checklists/model_change_checklist.md` for full process.
+See: `templates/checklists/model_change_checklist.md` for full process.
 
 ### Current Model
 - **Architecture**: Fine-tuned LLM (GPT-4 class)

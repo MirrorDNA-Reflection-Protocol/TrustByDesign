@@ -13,7 +13,7 @@ Run this to see the toolkit in action!
 import sys
 import os
 
-# Add parent directory to path so we can import toolkit
+# Add parent directory to path so we can import lib
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from toolkit import RiskRegistry, PolicyChecker, TrustReportBuilder

@@ -5,7 +5,7 @@ Tests for RiskRegistry module
 import pytest
 import tempfile
 import os
-from toolkit.risk_registry import (
+from lib.risk_registry import (
     RiskRegistry,
     Risk,
     RiskCategory,

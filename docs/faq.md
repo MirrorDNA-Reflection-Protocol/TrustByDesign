@@ -78,7 +78,7 @@ The schemas (JSON/YAML) and audit log formats are universal and work with any te
 
 Three approaches:
 
-1. **Automated**: Run `python tooling/validate_safety.py --config your-config.yaml`
+1. **Automated**: Run `python scripts/validate_safety.py --config your-config.yaml`
 2. **Testing**: Use the test suite templates in `tests/`
 3. **Manual**: Follow the audit checklist in `docs/governance-model.md`
 

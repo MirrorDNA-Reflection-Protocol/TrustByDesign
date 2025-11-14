@@ -122,7 +122,7 @@ Each example demonstrates:
 
 4. **Test with validation tool**:
    ```bash
-   python tooling/validate_safety.py --level 2 --config your-config.yaml
+   python scripts/validate_safety.py --level 2 --config your-config.yaml
    ```
 
 ### Upgrading to Level 3
@@ -154,7 +154,7 @@ If you need autonomous operation:
 
 3. Update safety level and validate:
    ```bash
-   python tooling/validate_safety.py --level 3 --config your-config.yaml
+   python scripts/validate_safety.py --level 3 --config your-config.yaml
    ```
 
 ---
@@ -232,10 +232,10 @@ def test_consent_required_for_memory():
 
 ```bash
 # Run full compliance validation
-python tooling/validate_safety.py --level 2 --config examples/safety-checklist.yaml
+python scripts/validate_safety.py --level 2 --config examples/safety-checklist.yaml
 
 # Run trust assessment
-python tooling/assess_trust.py --system "My Agent" --output assessment.json
+python scripts/assess_trust.py --system "My Agent" --output assessment.json
 ```
 
 ---
@@ -316,4 +316,4 @@ class AutonomousAgent(TrustByDesignAgent):
 - See `docs/integration-guide.md` for detailed implementation guidance
 - See `docs/faq.md` for common questions
 - See `examples/` for compliance templates
-- See `tooling/` for validation tools
+- See `scripts/` for validation tools

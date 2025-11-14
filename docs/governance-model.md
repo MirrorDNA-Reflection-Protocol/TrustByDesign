@@ -54,7 +54,7 @@ The TrustByDesign governance model defines **how systems self-regulate, how they
 ```bash
 # In CI/CD pipeline
 pytest tests/test_safety_protocols.py
-python tooling/validate_safety.py --config agent-config.yaml
+python scripts/validate_safety.py --config agent-config.yaml
 # Deployment blocked if checks fail
 ```
 
@@ -381,7 +381,7 @@ Governance is not static:
 
 - **Governance Declaration Template**: [examples/governance-declaration.md](../examples/governance-declaration.md)
 - **Audit Checklist**: [examples/trust-audit-template.md](../examples/trust-audit-template.md)
-- **Validation Tools**: `tooling/validate_safety.py`, `tooling/assess_trust.py`
+- **Validation Tools**: `scripts/validate_safety.py`, `scripts/assess_trust.py`
 
 ---
 

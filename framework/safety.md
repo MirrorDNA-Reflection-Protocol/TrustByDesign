@@ -318,13 +318,13 @@ Systems can be validated using:
 
 ```bash
 # Automated validation
-python tooling/validate_safety.py --level 2 --config agent-config.yaml
+python scripts/validate_safety.py --level 2 --config agent-config.yaml
 
 # Test suite
 pytest tests/test_safety_protocols.py -v
 
 # Manual audit
-python tooling/assess_trust.py --system my-agent
+python scripts/assess_trust.py --system my-agent
 ```
 
 ---
