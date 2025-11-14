@@ -15,8 +15,34 @@ TrustByDesign is a **trust layer** for the MirrorDNA Constellation. It provides:
 - **Validation Tools** — Automated compliance checking
 - **Templates & Examples** — Ready-to-use compliance configurations
 - **Integration Patterns** — How to embed TrustByDesign in your AI systems
+- **Trust & Compliance Pack** — Enterprise-ready documentation for security, compliance, and procurement teams
 
 **Role in Constellation:** Foundation layer that validates protocol-layer repos (MirrorDNA, LingOS, Glyphtrail) and enables safe product-layer implementations (ActiveMirrorOS, AgentDNA).
+
+---
+
+## If You're a Security/Compliance Person, Start Here
+
+**Evaluating MirrorDNA / ActiveMirrorOS for your organization?**
+
+**Start with the Trust & Compliance Pack**:
+
+1. **[Trust Framework](docs/trust_framework.md)** — Understand the core principles and trust model
+2. **[Risk Model](docs/risk_model.md)** — Review risk categories and mitigations
+3. **[Controls Checklist](docs/controls_checklist.md)** — See the specific controls required for compliance
+4. **[Privacy & Data Handling](docs/privacy_and_data_handling.md)** — GDPR, CCPA, and privacy compliance details
+5. **[Audit Guide](docs/audit_guide.md)** — How to audit a MirrorDNA deployment
+
+**For Procurement/Vendor Assessment**:
+- **[Security Questionnaire](templates/security_questionnaire.md)** — Standard vendor questionnaire responses
+- **[DPA Template](templates/dpa_addendum_stub.md)** — Data Processing Agreement template
+
+**For Implementation**:
+- **[Implementation Checklist](templates/implementation_checklist.md)** — Step-by-step rollout guide
+- **[Small Team Example](examples/example_small_team_rollout.md)** — 15-person team, 4-week rollout
+- **[Enterprise Example](examples/example_enterprise_rollout.md)** — 500-user deployment, 6-month rollout
+
+**Quick Assessment**: Is your deployment Level 1, 2, or 3? See [Trust Framework - Trust Levels](docs/trust_framework.md#trust-levels).
 
 ---
 
@@ -122,6 +148,8 @@ See [integrations/mirrordna_integration.py](integrations/mirrordna_integration.p
 
 ## Documentation
 
+### For Developers
+
 | Document | Purpose |
 |----------|---------|
 | [Quick Start](docs/quick-start.md) | Get started in 5 minutes |
@@ -132,6 +160,32 @@ See [integrations/mirrordna_integration.py](integrations/mirrordna_integration.p
 | [Architecture](docs/architecture.md) | Visual diagrams and data flows |
 | [Compliance Flowchart](docs/compliance-flowchart.md) | Choose your compliance level |
 | [FAQ](docs/faq.md) | Common questions |
+
+### Trust & Compliance Pack (For Security/Compliance/Legal)
+
+| Document | Purpose |
+|----------|---------|
+| [Trust Framework](docs/trust_framework.md) | Core principles as they apply to MirrorDNA/ActiveMirrorOS |
+| [Risk Model](docs/risk_model.md) | Risk categories: data, hallucination, continuity, governance |
+| [Controls Checklist](docs/controls_checklist.md) | Table of controls with implementation details |
+| [Audit Guide](docs/audit_guide.md) | How to audit a MirrorDNA-based deployment |
+| [Privacy & Data Handling](docs/privacy_and_data_handling.md) | GDPR, CCPA, data lifecycle, user rights |
+
+### Templates
+
+| Template | Purpose |
+|----------|---------|
+| [Security Questionnaire](templates/security_questionnaire.md) | Answer standard vendor security questions |
+| [DPA Addendum Stub](templates/dpa_addendum_stub.md) | Data Processing Agreement template |
+| [Risk Register](templates/risk_register_template.md) | Track risks and mitigations |
+| [Implementation Checklist](templates/implementation_checklist.md) | Step-by-step compliant rollout |
+
+### Examples
+
+| Example | Purpose |
+|---------|---------|
+| [Small Team Rollout](examples/example_small_team_rollout.md) | 15-person team using ActiveMirrorOS (4 weeks) |
+| [Enterprise Rollout](examples/example_enterprise_rollout.md) | 500+ person org with tight controls (6 months) |
 
 ---
 
