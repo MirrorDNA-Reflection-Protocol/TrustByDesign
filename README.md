@@ -4,6 +4,16 @@
 
 TrustByDesign ensures that AI agents with memory, identity, and continuity operate with transparency, safety, and ethical integrity.
 
+**Governing Standard:**
+TrustByDesign is aligned with **Master Citation v15.2**, inheriting:
+
+- Zero-Drift integrity
+- Auto-FEU truth-state policy
+- Vault Supremacy
+- Reflective Integrity constraints
+
+All trust, safety, compliance, and governance docs in this repo must follow v15.2.
+
 ---
 
 ## What Is This?
