@@ -422,15 +422,15 @@ Material changes require re-consent:
 
 ```bash
 # Validate governance declaration structure
-python tooling/validate_governance.py governance-declaration.yaml
+python scripts/validate_governance.py governance-declaration.yaml
 
 # Verify system meets declared governance
-python tooling/verify_compliance.py \
+python scripts/verify_compliance.py \
   --declaration governance-declaration.yaml \
   --system my-agent
 
 # Generate compliance report
-python tooling/assess_trust.py \
+python scripts/assess_trust.py \
   --system my-agent \
   --output compliance-report.md
 ```

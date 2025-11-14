@@ -3,7 +3,7 @@ Tests for uncertainty_tags module
 """
 
 import pytest
-from toolkit.uncertainty_tags import (
+from lib.uncertainty_tags import (
     TAG_FACT,
     TAG_ESTIMATE,
     TAG_UNKNOWN,

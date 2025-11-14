@@ -16,7 +16,7 @@ This guide shows you how to use the TrustByDesign governance layer in 5 minutes.
 
 ```bash
 # Generate a Level 2 checklist for your chatbot
-python tooling/generate_compliance_checklist.py \
+python scripts/generate_compliance_checklist.py \
   --level 2 \
   --type agent \
   --name "My Chatbot" \
@@ -37,7 +37,7 @@ python tooling/generate_compliance_checklist.py \
 
 ```bash
 # Interactive builder - answers questions, creates declaration
-python tooling/generate_governance.py --output my-governance.yaml
+python scripts/generate_governance.py --output my-governance.yaml
 ```
 
 **Questions you'll answer**:
@@ -61,7 +61,7 @@ cp templates/compliance/level2-chatbot.yaml my-agent-config.yaml
 nano my-agent-config.yaml  # or your favorite editor
 
 # Validate when done
-python tooling/validate_safety.py --level 2 --config my-agent-config.yaml
+python scripts/validate_safety.py --level 2 --config my-agent-config.yaml
 ```
 
 **Available templates**:
@@ -93,12 +93,12 @@ python integrations/example_level2_agent.py
 
 ```bash
 # Check compliance
-python tooling/validate_safety.py \
+python scripts/validate_safety.py \
   --level 2 \
   --config my-agent-config.yaml
 
 # Get trust assessment
-python tooling/assess_trust.py \
+python scripts/assess_trust.py \
   --system "My Agent" \
   --output trust-report.json
 ```
@@ -148,7 +148,7 @@ cp integrations/example_level2_agent.py my_agent.py
 python my_agent.py
 
 # Validate compliance
-python tooling/validate_safety.py --level 2 --config my-agent-config.yaml
+python scripts/validate_safety.py --level 2 --config my-agent-config.yaml
 ```
 
 ---
@@ -159,7 +159,7 @@ python tooling/validate_safety.py --level 2 --config my-agent-config.yaml
 
 ```bash
 # 1. Generate checklist
-python tooling/generate_compliance_checklist.py -l 2 -t agent -n "ChatBot" -o chatbot-checklist.yaml
+python scripts/generate_compliance_checklist.py -l 2 -t agent -n "ChatBot" -o chatbot-checklist.yaml
 
 # 2. Copy working example
 cp integrations/example_level2_agent.py chatbot.py
@@ -167,7 +167,7 @@ cp integrations/example_level2_agent.py chatbot.py
 # 3. Customize capabilities in chatbot.py
 
 # 4. Validate
-python tooling/validate_safety.py --level 2 --config chatbot-checklist.yaml
+python scripts/validate_safety.py --level 2 --config chatbot-checklist.yaml
 
 # 5. Run
 python chatbot.py
@@ -177,7 +177,7 @@ python chatbot.py
 
 ```bash
 # 1. Generate governance declaration
-python tooling/generate_governance.py --output governance.yaml
+python scripts/generate_governance.py --output governance.yaml
 
 # 2. Use Level 2 example as reference
 cat integrations/example_level2_agent.py
@@ -189,7 +189,7 @@ cat integrations/example_level2_agent.py
 #    - Capability boundaries
 
 # 4. Validate
-python tooling/validate_safety.py --level 2 --config governance.yaml
+python scripts/validate_safety.py --level 2 --config governance.yaml
 ```
 
 ### Workflow 3: MirrorDNA Integration
@@ -220,10 +220,10 @@ python integrations/mirrordna_integration.py
 - `integrations/mirrordna_integration.py` — MirrorDNA + TrustByDesign
 
 **Tools**:
-- `tooling/generate_governance.py` — Interactive declaration builder
-- `tooling/generate_compliance_checklist.py` — Auto-generate checklists
-- `tooling/validate_safety.py` — Validate compliance
-- `tooling/assess_trust.py` — Trust assessment
+- `scripts/generate_governance.py` — Interactive declaration builder
+- `scripts/generate_compliance_checklist.py` — Auto-generate checklists
+- `scripts/validate_safety.py` — Validate compliance
+- `scripts/assess_trust.py` — Trust assessment
 
 **Docs**:
 - `docs/integration-guide.md` — Full implementation guide

@@ -7,7 +7,7 @@ import tempfile
 import os
 import yaml
 import json
-from toolkit.policy_checker import PolicyChecker, PolicyIssue
+from lib.policy_checker import PolicyChecker, PolicyIssue
 
 
 class TestPolicyIssue:

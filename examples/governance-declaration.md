@@ -225,10 +225,10 @@
 pytest tests/test_safety_protocols.py -v
 
 # Validate configuration
-python tooling/validate_safety.py --level 2 --config agent-config.yaml
+python scripts/validate_safety.py --level 2 --config agent-config.yaml
 
 # Generate trust assessment
-python tooling/assess_trust.py --system example-assistant-001
+python scripts/assess_trust.py --system example-assistant-001
 ```
 
 ### Manual Review

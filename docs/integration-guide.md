@@ -369,10 +369,10 @@ class Level3Agent(Level2Agent):
 pytest tests/test_safety_protocols.py
 
 # 2. Validate configuration against TrustByDesign schemas
-python tooling/validate_safety.py --level 2 --config agent-capabilities.yaml
+python scripts/validate_safety.py --level 2 --config agent-capabilities.yaml
 
 # 3. Generate compliance report
-python tooling/assess_trust.py --system my-agent --output compliance-report.md
+python scripts/assess_trust.py --system my-agent --output compliance-report.md
 
 # 4. Review governance declaration
 cat governance-declaration.md
@@ -535,7 +535,7 @@ def test_agent_compliance():
 
 - **Examples**: See `examples/` directory for templates
 - **Schemas**: Use `schemas/` for validation
-- **Tools**: Run validation with `tooling/validate_safety.py`
+- **Tools**: Run validation with `scripts/validate_safety.py`
 - **Tests**: Add to `tests/` for CI/CD integration
 
 **Questions?** Review the [FAQ](faq.md) or open an issue in the repository.

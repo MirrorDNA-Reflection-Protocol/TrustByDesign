@@ -69,7 +69,7 @@ jobs:
         run: pip install pyyaml
       - name: Validate safety compliance
         run: |
-          python tooling/validate_safety.py \
+          python scripts/validate_safety.py \
             --level 2 \
             --config config/agent-config.yaml
 ```

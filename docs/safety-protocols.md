@@ -251,7 +251,7 @@ Use the TrustByDesign validation tools:
 
 ```bash
 # Run full safety protocol compliance check
-python tooling/validate_safety.py --level 2 --config my-agent-config.yaml
+python scripts/validate_safety.py --level 2 --config my-agent-config.yaml
 
 # Output example:
 # ✓ Memory Safety: PASS

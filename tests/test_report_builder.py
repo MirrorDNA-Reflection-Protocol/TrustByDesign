@@ -6,9 +6,9 @@ import pytest
 import tempfile
 import os
 import json
-from toolkit.report_builder import TrustReportBuilder
-from toolkit.risk_registry import RiskRegistry, RiskCategory, Severity, Likelihood, RiskStatus
-from toolkit.policy_checker import PolicyChecker
+from lib.report_builder import TrustReportBuilder
+from lib.risk_registry import RiskRegistry, RiskCategory, Severity, Likelihood, RiskStatus
+from lib.policy_checker import PolicyChecker
 
 
 class TestReportBuilderBasics:
