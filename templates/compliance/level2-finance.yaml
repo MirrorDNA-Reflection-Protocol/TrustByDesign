@@ -1,0 +1,492 @@
+# TrustByDesign Compliance Template
+# Industry: Financial Services
+# Level: 2 (Interactive)
+# Version: 1.0
+
+system_info:
+  name: "Financial Advisory AI Assistant"
+  type: "interactive_chatbot"
+  version: "1.0.0"
+  compliance_level: 2
+  industry: "financial_services"
+  deployment_date: "2025-01-15"
+
+  # Financial regulatory frameworks
+  regulatory_frameworks:
+    - "SOX" # Sarbanes-Oxley Act
+    - "GLBA" # Gramm-Leach-Bliley Act
+    - "PCI DSS" # Payment Card Industry Data Security Standard
+    - "FCRA" # Fair Credit Reporting Act
+    - "FINRA" # Financial Industry Regulatory Authority rules
+    - "SEC Reg BI" # Best Interest regulation
+    - "GDPR" # If serving EU customers
+    - "TrustByDesign Level 2"
+
+  data_classification: "PII_and_Financial" # Personally Identifiable Information + Financial Data
+
+# =============================================================================
+# PRINCIPLE 1: TRANSPARENCY
+# =============================================================================
+
+transparency:
+  enabled: true
+
+  # Financial services require explicit disclosure
+  disclosure_requirements:
+    ai_powered_service: true
+    not_licensed_advisor: true
+    algorithm_limitations: true
+    data_sources_disclosed: true
+    fees_and_costs_disclosed: true
+    conflicts_of_interest: true
+
+  reasoning:
+    enabled: true
+    shows_calculation_basis: true
+    cites_market_data_sources: true
+    explains_recommendations: true
+    includes_assumptions: true
+
+  confidence_scoring:
+    enabled: true
+    threshold: 0.75 # Moderate threshold for financial guidance
+    display_to_user: true
+    low_confidence_action: "recommend_human_advisor"
+
+  # Financial-specific: Investment decision transparency
+  financial_reasoning:
+    shows_risk_analysis: true
+    explains_portfolio_recommendations: true
+    discloses_market_assumptions: true
+    presents_historical_performance: true
+    includes_risk_warnings: true
+
+# =============================================================================
+# PRINCIPLE 2: CONSENT
+# =============================================================================
+
+consent:
+  enabled: true
+
+  # GLBA and financial privacy consent
+  memory_consent:
+    required: true
+    explicit: true
+    documented: true
+    version: "1.0"
+    includes_data_sharing_disclosure: true
+
+  data_usage_consent:
+    financial_account_linking: "explicit_consent_required"
+    transaction_analysis: "explicit_consent_required"
+    investment_tracking: "explicit_consent_required"
+    credit_score_access: "explicit_consent_required"
+    third_party_data_sharing: "explicit_consent_required"
+
+  # Financial privacy rights
+  user_rights:
+    access_financial_data: true
+    request_corrections: true
+    opt_out_data_sharing: true
+    request_deletion: true
+    portability: true # GDPR if applicable
+
+  revocation:
+    immediate_effect: true
+    complete_data_deletion: true
+    third_party_deletion_notice: true
+    deletion_verification: true
+    deletion_audit_trail: true
+    retention_period_days: 0 # Immediate, unless legal hold
+
+  # Financial-specific: SEC disclosures
+  sec_disclosures:
+    form_adv_equivalent: true
+    material_conflicts: true
+    compensation_structure: true
+    disciplinary_history: false # N/A for AI
+
+# =============================================================================
+# PRINCIPLE 3: BOUNDEDNESS
+# =============================================================================
+
+boundedness:
+  enabled: true
+
+  # Financial AI must have strict capability boundaries
+  capabilities:
+    allowed:
+      - "financial_education"
+      - "budget_tracking"
+      - "expense_categorization"
+      - "savings_goal_tracking"
+      - "general_investment_information"
+      - "market_data_display"
+      - "financial_calculators"
+      - "retirement_planning_estimates"
+      - "bill_reminders"
+
+    prohibited:
+      - "provide_specific_investment_advice"
+      - "execute_trades"
+      - "guarantee_returns"
+      - "recommend_specific_securities"
+      - "provide_tax_advice"
+      - "provide_legal_advice"
+      - "make_lending_decisions"
+      - "access_user_funds_without_explicit_action"
+      - "make_credit_decisions"
+
+  # Regulatory compliance boundaries
+  regulatory_boundaries:
+    no_fiduciary_relationship: true
+    not_registered_investment_advisor: true
+    not_broker_dealer: true
+    educational_purposes_only: true
+
+  # Fraud detection and prevention
+  fraud_prevention:
+    detects_suspicious_activity: true
+    unusual_transaction_alerts: true
+    identity_verification_required: true
+    no_sensitive_data_via_chat: true
+
+  scope:
+    temporal_bounds:
+      memory_retention_days: 2555 # 7 years, financial record retention
+      session_timeout_minutes: 10 # Shorter for financial security
+
+    data_access_bounds:
+      only_user_own_accounts: true
+      no_cross_customer_access: true
+      read_only_account_access: true
+      no_fund_transfers_without_mfa: true
+
+    resource_limits:
+      max_transactions_analyzed: 10000
+      max_accounts_linked: 20
+      api_rate_limits: "100_requests_per_hour"
+
+# =============================================================================
+# PRINCIPLE 4: FALLIBILITY
+# =============================================================================
+
+fallibility:
+  enabled: true
+
+  # Financial services require explicit risk disclosure
+  uncertainty_handling:
+    acknowledge_limitations: true
+    express_confidence_scores: true
+    defer_to_licensed_advisors: true
+    never_guarantee_performance: true
+
+  confidence_thresholds:
+    minimum_for_guidance: 0.75
+    require_disclaimer_below: 0.85
+    always_include_risk_warning: true
+
+  # Financial disclaimers
+  disclaimers:
+    not_financial_advice: true
+    past_performance_not_guarantee: true
+    consult_licensed_advisor: true
+    market_risks_disclosed: true
+    no_guaranteed_returns: true
+
+  error_recovery:
+    user_can_report_errors: true
+    calculation_errors_corrected: true
+    corrections_logged: true
+    financial_review_for_errors: true
+
+  # Financial-specific: Risk disclosures
+  risk_disclosures:
+    market_volatility: true
+    loss_of_principal_possible: true
+    inflation_risk: true
+    interest_rate_risk: true
+    not_fdic_insured: true # If applicable
+
+# =============================================================================
+# PRINCIPLE 5: AUDITABILITY
+# =============================================================================
+
+auditability:
+  enabled: true
+
+  # SOX and financial regulations require comprehensive audits
+  audit_log:
+    enabled: true
+    format: "json"
+    retention_days: 2555 # 7 years, financial regulation standard
+    immutable: true
+    encrypted: true
+    tamper_evident: true
+
+    logged_events:
+      - "consent_granted"
+      - "consent_revoked"
+      - "account_linked"
+      - "account_unlinked"
+      - "financial_data_accessed"
+      - "financial_data_analyzed"
+      - "recommendation_generated"
+      - "user_authentication"
+      - "failed_authentication"
+      - "data_export_request"
+      - "suspicious_activity_detected"
+      - "advisor_referral"
+      - "calculation_performed"
+
+    log_entry_fields:
+      - "timestamp"
+      - "user_id_hashed"
+      - "event_type"
+      - "action_details"
+      - "outcome"
+      - "confidence_score"
+      - "data_accessed"
+      - "ip_address"
+      - "session_id"
+      - "geolocation" # For fraud detection
+      - "device_fingerprint"
+
+  # SOX compliance: Internal controls
+  internal_controls:
+    segregation_of_duties: true
+    change_management_process: true
+    code_review_required: true
+    automated_testing: true
+    quarterly_audits: true
+
+  # Access controls (GLBA requirement)
+  access_controls:
+    role_based_access: true
+    least_privilege_principle: true
+    multi_factor_authentication: true
+    session_management: true
+    automatic_logout: true
+
+  # Breach notification
+  breach_detection:
+    enabled: true
+    automatic_detection: true
+    notification_required: true
+    notification_timeline_hours: 72
+    affected_users_notified: true
+    regulatory_notification: true # SEC, state agencies
+
+# =============================================================================
+# FINANCIAL SERVICES-SPECIFIC REQUIREMENTS
+# =============================================================================
+
+financial_specific:
+
+  # Regulatory compliance
+  regulatory_compliance:
+    know_your_customer: true # KYC
+    anti_money_laundering: true # AML
+    customer_identification_program: true # CIP
+    sanctions_screening: true # OFAC
+    suspicious_activity_reporting: true # SAR
+
+  # Data security (PCI DSS if handling payments)
+  data_security:
+    encryption_at_rest: true
+    encryption_in_transit: true
+    encryption_standard: "AES-256"
+    key_management: "HSM-based" # Hardware Security Module
+    data_masking: true # For sensitive financial data
+    tokenization: true # For account numbers
+
+  # Transaction security
+  transaction_security:
+    mfa_required_for_transactions: true
+    velocity_checks: true
+    anomaly_detection: true
+    fraud_scoring: true
+    transaction_limits: true
+
+  # Suitability and best interest
+  suitability:
+    considers_user_goals: true
+    considers_risk_tolerance: true
+    considers_time_horizon: true
+    considers_financial_situation: true
+    no_unsuitable_recommendations: true
+
+  # Fair lending (if applicable)
+  fair_lending:
+    no_discrimination: true
+    equal_treatment: true
+    transparent_criteria: true
+    disparate_impact_testing: true
+
+  # Market data
+  market_data:
+    real_time_or_delayed: "delayed_15_min"
+    data_source: "licensed_provider"
+    data_accuracy_checks: true
+    stale_data_detection: true
+
+  # Recordkeeping
+  recordkeeping:
+    communication_records: true
+    recommendation_records: true
+    user_interaction_logs: true
+    retention_period_years: 7
+    records_easily_accessible: true
+
+# =============================================================================
+# VALIDATION & TESTING
+# =============================================================================
+
+validation:
+  safety_checks:
+    - name: "no_investment_advice"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "financial_data_protection"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "consent_flow"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "fraud_detection"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 95
+
+    - name: "risk_disclaimers"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 100
+
+    - name: "aml_compliance"
+      status: "passing"
+      last_tested: "2025-01-15"
+      test_coverage: 98
+
+  compliance_score: 98.8
+
+  gaps:
+    - "None identified in current testing"
+
+  next_review_date: "2025-04-15" # Quarterly reviews required
+
+# =============================================================================
+# GOVERNANCE
+# =============================================================================
+
+governance:
+  financial_oversight:
+    enabled: true
+    compliance_officer_assigned: true
+    risk_committee: true
+    review_frequency: "quarterly"
+
+  incident_response:
+    plan_exists: true
+    escalation_path_defined: true
+    regulatory_reporting_process: true
+    root_cause_analysis_required: true
+    customer_notification_process: true
+
+  continuous_monitoring:
+    enabled: true
+    metrics_tracked:
+      - "user_satisfaction"
+      - "referral_rate_to_advisors"
+      - "fraud_detection_accuracy"
+      - "consent_revocations"
+      - "recommendation_quality"
+      - "suspicious_activity_reports"
+      - "system_availability"
+
+  documentation:
+    policies_documented: true
+    procedures_documented: true
+    training_materials_available: true
+    compliance_training_completed: true
+    disaster_recovery_plan: true
+
+  third_party_oversight:
+    vendor_due_diligence: true
+    vendor_contracts_reviewed: true
+    vendor_security_assessed: true
+    vendor_compliance_verified: true
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  This template ensures compliance with:
+  - TrustByDesign Level 2 principles
+  - SOX internal controls requirements
+  - GLBA privacy and security rules
+  - FINRA communications and advertising rules
+  - SEC regulations for investment advisers
+  - PCI DSS (if handling payment cards)
+  - State-specific financial regulations
+
+  Key Financial Services Considerations:
+  1. Never provide specific investment advice without proper licensing
+  2. Always include risk disclosures and disclaimers
+  3. Financial data must be encrypted at rest and in transit
+  4. Audit logs must be retained for 7 years minimum
+  5. KYC/AML compliance is mandatory
+  6. Fraud detection and prevention are critical
+  7. User financial goals and risk tolerance must be considered
+
+  Regular compliance reviews and updates are essential as
+  regulations and market conditions change.
+
+# =============================================================================
+# COMPLIANCE CHECKLIST
+# =============================================================================
+
+checklist:
+  transparency:
+    - "[x] AI-powered service disclosed"
+    - "[x] Not a licensed advisor stated clearly"
+    - "[x] Fee structure explained"
+    - "[x] Data sources cited"
+
+  consent:
+    - "[x] GLBA-compliant consent obtained"
+    - "[x] Data sharing explained"
+    - "[x] Third-party sharing disclosed"
+    - "[x] Opt-out options provided"
+
+  boundedness:
+    - "[x] No specific investment advice"
+    - "[x] No trade execution capabilities"
+    - "[x] No guaranteed returns"
+    - "[x] Educational purpose clear"
+
+  fallibility:
+    - "[x] Risk disclaimers always shown"
+    - "[x] Past performance disclaimer"
+    - "[x] Market risk disclosure"
+    - "[x] Refer to licensed advisors"
+
+  auditability:
+    - "[x] 7-year audit log retention"
+    - "[x] All transactions logged"
+    - "[x] Immutable audit trail"
+    - "[x] SOX controls in place"
+
+  financial_specific:
+    - "[x] KYC/AML procedures implemented"
+    - "[x] Fraud detection active"
+    - "[x] PCI DSS compliant (if applicable)"
+    - "[x] Encryption (AES-256) implemented"
+    - "[x] Regulatory reporting ready"

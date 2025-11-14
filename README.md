@@ -103,7 +103,15 @@ python scripts/assess_trust.py --system "My Agent" --output trust-report.json
 
 ### Use a Template
 ```bash
+# Generic templates
 cp templates/compliance/level2-chatbot.yaml my-config.yaml
+
+# Industry-specific templates
+cp templates/compliance/level2-healthcare.yaml my-config.yaml  # Healthcare
+cp templates/compliance/level2-finance.yaml my-config.yaml     # Financial services
+cp templates/compliance/level2-education.yaml my-config.yaml   # Education
+
+# Validate
 python scripts/validate_safety.py --level 2 --config my-config.yaml
 ```
 
@@ -121,6 +129,8 @@ See [integrations/mirrordna_integration.py](integrations/mirrordna_integration.p
 | [Safety Protocols](docs/safety-protocols.md) | Operational safety requirements |
 | [Governance Model](docs/governance-model.md) | Compliance levels and structures |
 | [Integration Guide](docs/integration-guide.md) | How to implement in your system |
+| [Architecture](docs/architecture.md) | Visual diagrams and data flows |
+| [Compliance Flowchart](docs/compliance-flowchart.md) | Choose your compliance level |
 | [FAQ](docs/faq.md) | Common questions |
 
 ---
