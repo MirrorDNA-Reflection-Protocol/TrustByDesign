@@ -113,7 +113,7 @@ boundedness:
       - "prescribe_medications"
       - "recommend_specific_treatments"
       - "interpret_lab_results"
-      - "provide_emergency_medical_advice"
+      - "provide_emergency_medical_information"
       - "replace_doctor_consultation"
       - "guarantee_health_outcomes"
       - "store_images_of_injuries_or_conditions" # Unless specifically approved
@@ -160,7 +160,7 @@ fallibility:
     never_guarantee_outcomes: true
 
   confidence_thresholds:
-    minimum_for_advice: 0.8 # High bar for health advice
+    minimum_for_information: 0.8 # High bar for health information
     require_disclaimer_below: 0.9
     always_include_disclaimer: true
 
@@ -366,7 +366,7 @@ notes: |
   - TrustByDesign Level 2 principles
   - HIPAA Privacy and Security Rules
   - HITECH Act requirements
-  - FDA guidelines for clinical decision support (if applicable)
+  - FDA guidelines for non-advisory reflective output (if applicable)
 
   Key Healthcare Considerations:
   1. Never diagnose or prescribe - refer to healthcare providers

@@ -156,7 +156,7 @@ class SelfGoverningAgent:
 **Artifacts**:
 - Audit reports
 - Compliance certifications
-- Recommendations for improvement
+- Suggestions for improvement
 
 ---
 
@@ -242,8 +242,8 @@ All Level 2+ systems maintain structured logs:
       "event_type": "decision",
       "details": {
         "input": "Should I invest in cryptocurrency?",
-        "output": "I can't provide financial advice (outside my capability bounds).",
-        "reasoning": "Financial advice requires capability: provide_financial_recommendations (not present)",
+        "output": "I can't provide financial information (outside my capability bounds).",
+        "reasoning": "Financial information requires capability: provide_financial_information (not present)",
         "outcome": "capability_boundary_respected"
       }
     }
@@ -294,7 +294,7 @@ Every Level 2+ system must publish a Governance Declaration:
 - Memory of user preferences within session
 
 ## Boundaries
-- No financial or medical advice
+- No financial or medical information provision (research prototype only)
 - No network access or external API calls
 - No persistent cross-session memory without explicit consent
 

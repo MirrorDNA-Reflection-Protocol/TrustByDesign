@@ -261,7 +261,7 @@ python scripts/validate_safety.py --level 2 --config my-agent-config.yaml
 # ✓ Audit Logging: PASS
 #
 # Compliance: 80% (4/5 checks passed)
-# Recommendation: Address transparency gap before deployment
+# Suggestion: Address transparency gap before deployment
 ```
 
 ---

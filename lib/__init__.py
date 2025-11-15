@@ -1,3 +1,5 @@
+# FEU Contract: Fact/Estimate/Unknown | Bound to Master Citation v15.2
+# All outputs must distinguish epistemic status: Fact, Estimate, or Unknown
 """
 TrustByDesign Toolkit
 
@@ -11,7 +13,7 @@ Modules:
 - report_builder: Generate trust reports
 """
 
-__version__ = "1.0.0"
+__version__ = "0.2.0-hardening"
 
 from .risk_registry import RiskRegistry, Risk
 from .policy_checker import PolicyChecker

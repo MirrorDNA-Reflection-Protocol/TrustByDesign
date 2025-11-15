@@ -83,7 +83,7 @@ These principles apply to all AI systems with:
   - Clear audit trails for governance checks
   - Reproducible reasoning from logged data
 
-**Example**: A compliance officer can trace exactly how an agent arrived at a recommendation and verify it met safety criteria.
+**Example**: A compliance officer can trace exactly how an agent arrived at an informational output and verify it met safety criteria.
 
 ---
 

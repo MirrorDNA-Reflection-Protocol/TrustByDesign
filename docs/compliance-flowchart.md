@@ -154,7 +154,7 @@ Scenario: System coordinating multiple AI agents
                     ────────              ───────────           ─────────
 Examples:           • FAQs                • Personal data       • Medical decisions
                     • Analytics           • Shopping cart       • Financial trades
-                    • Monitoring          • Recommendations     • Legal advice
+                    • Monitoring          • Information only    • Research prototype
                                                                 • Autonomous vehicles
 
 Data Sensitivity:   Public only          User-specific         Highly sensitive

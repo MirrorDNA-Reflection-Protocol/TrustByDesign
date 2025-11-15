@@ -87,12 +87,12 @@ The chatbot may generate false medical information that appears authoritative, p
 **Likelihood**: Medium
 
 **Impact**:
-- Users may act on false medical advice
+- Users may act on false medical information (research prototype)
 - Potential harm to user health
 - Liability and reputation damage
 
 **Mitigations**:
-1. Add explicit disclaimer: "Not a substitute for medical advice"
+1. Add explicit disclaimer: "Research prototype only - not medical information"
 2. Refuse to answer medical questions directly
 3. Provide links to authoritative medical resources only
 4. Flag all medical content as `[UNKNOWN]` unless from verified source

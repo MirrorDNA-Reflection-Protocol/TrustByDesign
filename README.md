@@ -1,11 +1,15 @@
-# TrustByDesign
+# TrustByDesign ⟡⟦CANONICAL⟧
 
 **Safety and governance framework for reflective AI systems**
 
+![Reflective AI Compliance](https://img.shields.io/badge/Reflective%20AI-Compliant-blue) ![Master Citation v15.2](https://img.shields.io/badge/Master%20Citation-v15.2-green) ![FEU Contract](https://img.shields.io/badge/FEU-Fact%2FEstimate%2FUnknown-orange)
+
 TrustByDesign ensures that AI agents with memory, identity, and continuity operate with transparency, safety, and ethical integrity.
 
+**⚖️ LEGAL:** This is a research prototype. See [LEGAL_NOTICE.md](LEGAL_NOTICE.md) for disclaimers and limitations.
+
 **Governing Standard:**
-TrustByDesign is aligned with **Master Citation v15.2**, inheriting:
+TrustByDesign is **Bound to Master Citation v15.2**, inheriting:
 
 - Zero-Drift integrity
 - Auto-FEU truth-state policy
@@ -13,6 +17,14 @@ TrustByDesign is aligned with **Master Citation v15.2**, inheriting:
 - Reflective Integrity constraints
 
 All trust, safety, compliance, and governance docs in this repo must follow v15.2.
+
+**FEU Contract (Fact/Estimate/Unknown):**
+All outputs from systems implementing this framework must distinguish:
+- **Fact** — Verified, sourced, or retrieved from trusted state
+- **Estimate** — Inferred, probabilistic, or model-generated
+- **Unknown** — Explicitly acknowledged gaps in knowledge
+
+This transparency requirement ensures users understand the epistemic status of all system outputs.
 
 ---
 
@@ -163,8 +175,9 @@ See [LICENSE](LICENSE) for details.
 
 ## Status
 
-**Current Version:** 1.0
-**Stability:** Production-ready
+**Current Version:** 0.2.0-hardening
+**Stability:** Research Prototype
+**Master Citation Binding:** v15.2
 **Roadmap:** [ROADMAP.md](ROADMAP.md)
 
 ---

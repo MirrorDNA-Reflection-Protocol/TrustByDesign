@@ -208,7 +208,7 @@ notes: |
   - Long-running autonomous agents
   - Research assistants with task planning
   - Scheduling and automation agents
-  - Decision support systems
+  - Non-advisory reflective output systems
 
   DO NOT use Level 3 unless you truly need autonomy.
   Most use cases can be satisfied with Level 2.

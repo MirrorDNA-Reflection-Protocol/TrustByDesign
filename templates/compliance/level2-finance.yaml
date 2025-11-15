@@ -127,12 +127,12 @@ boundedness:
       - "bill_reminders"
 
     prohibited:
-      - "provide_specific_investment_advice"
+      - "provide_specific_investment_information"
       - "execute_trades"
       - "guarantee_returns"
       - "recommend_specific_securities"
-      - "provide_tax_advice"
-      - "provide_legal_advice"
+      - "provide_tax_information"
+      - "provide_legal_information"
       - "make_lending_decisions"
       - "access_user_funds_without_explicit_action"
       - "make_credit_decisions"
@@ -188,7 +188,7 @@ fallibility:
 
   # Financial disclaimers
   disclaimers:
-    not_financial_advice: true
+    not_financial_advice: true # Information only, research prototype
     past_performance_not_guarantee: true
     consult_licensed_advisor: true
     market_risks_disclosed: true
@@ -344,7 +344,7 @@ financial_specific:
 
 validation:
   safety_checks:
-    - name: "no_investment_advice"
+    - name: "no_investment_information_provision"
       status: "passing"
       last_tested: "2025-01-15"
       test_coverage: 100
@@ -438,7 +438,7 @@ notes: |
   - State-specific financial regulations
 
   Key Financial Services Considerations:
-  1. Never provide specific investment advice without proper licensing
+  1. Research prototype only - not for providing specific investment information
   2. Always include risk disclosures and disclaimers
   3. Financial data must be encrypted at rest and in transit
   4. Audit logs must be retained for 7 years minimum
@@ -467,10 +467,10 @@ checklist:
     - "[x] Opt-out options provided"
 
   boundedness:
-    - "[x] No specific investment advice"
+    - "[x] No specific investment information provision"
     - "[x] No trade execution capabilities"
     - "[x] No guaranteed returns"
-    - "[x] Educational purpose clear"
+    - "[x] Educational purpose clear (research prototype)"
 
   fallibility:
     - "[x] Risk disclaimers always shown"
